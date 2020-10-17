@@ -1,0 +1,21 @@
+<view class="couresCard-warp">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="uc-card-warp">
+      <view class="uc-card-item">
+        <label class="lable-tab">
+          <view class="wui-iconfont wui-icon-gerenyonghutouxiang"></view>
+          <input name="cardCode" type='text' placeholder="请输入卡名" auto-focus />
+        </label>
+      </view>
+      <view class="uc-card-item">
+        <label class="lable-tab">
+          <view class="wui-iconfont wui-icon-mima01"></view>
+          <input name="cardCodePassword" type='text' placeholder="请输入密码" auto-focus />
+        </label>
+      </view>
+      <view class="uc-card-item">
+        <button formType="submit" class="primary-btn">确认绑定</button>
+      </view>
+    </view>
+  </form>
+</view>

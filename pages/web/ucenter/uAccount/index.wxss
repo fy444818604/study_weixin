@@ -1,0 +1,19 @@
+.plan-tab {background: #ffffff;border-bottom: 1px solid #eee;}
+.plan-tab view {width: 33%;display: inline-block;line-height: 30px;color: #333;font-size: 0.92rem;text-align: center; padding: 5px 0;}
+.plan-tab .finish-yet {border-right: 1px solid #eee;}
+.plan-tab .active {color: #e94c2a;border-bottom: 1px solid #e94c2a;}
+
+.u-account-wrap {padding: 15px 10px;}
+.account-item {margin-bottom: 15px;}
+.account__title {line-height: 34px;font-size: 0.82rem; color: #4c4c4c;margin-bottom: 5px;}
+.account-item label input,.account-item label {line-height: 34px;font-size: 0.82rem; color: #4c4c4c;}
+.ml30 {margin-left: 30px;}
+.mt10 {margin-top: 10px;}
+
+.account-title {border-left: 3px solid #ff8053; color: #333;font-size: 0.92rem;font-family: "SimHei";line-height: 16px;padding-left: 16rpx;margin: 32rpx 0 0 20rpx}
+.btn-area {padding-top: 10px;}
+input {border-bottom: 1px solid #eee;padding-bottom: 2px;font-size: 0.82rem;}
+.tel-edit {width: 58%;display: inline-block;}
+.jym-get {width: 37%;margin-left: 5%;display: inline-block;background:#ff7646;font-size:26rpx;color:#fff;}
+.avator-pic image {width: 100px; height: 100px; display:block; margin: 20px auto;}
+.primary-btn{background:#ff7646;font-size:32rpx;color:#fff;margin-top:70rpx;}

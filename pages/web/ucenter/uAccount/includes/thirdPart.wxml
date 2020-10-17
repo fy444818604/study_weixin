@@ -1,0 +1,39 @@
+<loading hidden="{{loadingHidden}}"> 
+    拼命加载中...
+</loading>
+<view class="account-title">
+    第三方账号
+</view>
+<scroll-view scroll-y="true" style="height: 100%;" scroll-into-view="{{toView}}" upper-threshold="5" lower-threshold="5" bindscrolltoupper="refresh" bindscrolltolower="loadMore">
+   <form bindsubmit="basicFormSubmit" bindreset="formReset" >
+    <view class="u-account-wrap">
+        <view class="account-item">
+          <view class="account__title">用户名</view>
+          <input name="nickname" placeholder="please input here" value="{{user.nickname}}" />
+        </view>
+        <view class="account-item">
+          <view class="account__title">姓名</view>
+          <input name="username" placeholder="please input here" value="{{user.realname}}" />
+        </view>
+        <view class="account-item">
+          <view class="account__title">性别</view>
+          <radio-group name="radiogroup">
+            <label><radio value="{{user.gender}}" checked="{{user.gender==0?true:false}}"/>男</label>
+            <label class="ml30"><radio value="{{user.gender}}" checked="{{user.gender==1?true:false}}" />女</label>
+          </radio-group>
+        </view> 
+        <view class="account-item">
+          <view class="account__title">手机号</view>
+          <input name="tel" placeholder="please input here" value="{{user.mobile}}" />
+        </view>
+        <view class="account-item">
+          <view class="account__title">邮箱</view>
+          <input name="email" placeholder="please input here" value="{{user.email}}" />
+        </view>     
+        <view class="btn-area">
+          <button formType="submit" class="primary-btn">修改</button>
+          <button formType="reset" class="mt10">重置</button>
+        </view>
+      </view>
+  </form>
+</scroll-view>

@@ -1,0 +1,6 @@
+<include wx:if="{{contentType === 'basic'}}" src="includes/basic.wxml"/>
+<include wx:if="{{contentType === 'avator'}}" src="includes/avator.wxml"/>
+<include wx:if="{{contentType === 'password'}}" src="includes/password.wxml"/>
+<include wx:if="{{contentType === 'mobile'}}" src="includes/mobile.wxml"/>
+<include wx:if="{{contentType === 'email'}}" src="includes/email.wxml"/>
+<include wx:if="{{contentType === 'thirdPart'}}" src="includes/thirdPart.wxml"/>

@@ -1,0 +1,16 @@
+<loading hidden="{{loadingHidden}}"> 
+    拼命加载中...
+</loading>
+<view class="account-title">
+    修改头像
+</view>
+<scroll-view scroll-y="true" style="height: 100%;" scroll-into-view="{{toView}}" upper-threshold="5" lower-threshold="5" bindscrolltoupper="refresh" bindscrolltolower="loadMore">
+  <view class="u-account-wrap">
+      <view class="account-item">
+        <view class="avator-pic"><image src="{{host}}{{user.picImg}}"></image></view>
+      </view>
+      <view class="btn-area">
+        <button bindtap="chooseImageTap" class="primary-btn">上传</button>
+      </view>
+    </view>
+</scroll-view>

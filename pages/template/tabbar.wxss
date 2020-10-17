@@ -1,0 +1,32 @@
+.menu-item{
+  width: 25%;
+  float: left;
+  text-align: center;
+  padding: 4px 0;
+}
+.menu-item-with-live{
+  width: 25%;
+  float: left;
+  text-align: center;
+  padding: 4px 0;
+}
+.img{
+  width: 70rpx;
+  height: 70rpx;
+  display: block;
+  margin: auto;
+}
+.clear{
+  clear: both;
+}
+.tab-bar{
+  position: fixed;
+  width: 100%;
+}
+.tabbar-text{
+  font-size: 28rpx;
+  display: block;
+}
+.tab-placeholder{
+  height: 124rpx;
+}

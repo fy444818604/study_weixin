@@ -1,0 +1,59 @@
+{
+  "pages": [
+    "pages/web/exam/examTest/examTest",
+    "pages/web/index/index",
+    "pages/web/exam/examDetail/examDetail",
+    "pages/web/course/courseList",
+    "pages/web/courseInfor/courseInfor",
+    "pages/web/playHall/index",
+    "pages/web/ucenter/uc-coures/ucCoures",
+    "pages/web/ucenter/uc-oder/ucOder",
+    "pages/web/ucenter/uAccountMenu/index",
+    "pages/web/ucenter/uAccount/index",
+    "pages/web/ucenter/uMessage/index",
+    "pages/web/logs/logs",
+    "pages/web/register/register",
+    "pages/web/forgetPassword/forgetPassword",
+    "pages/web/setPassword/forgetPassword",
+    "pages/web/payment/payment",
+    "pages/web/rePayment/rePayment",
+    "pages/template/tabbar",
+    "pages/live/liveList/liveList",
+    "pages/live/96kooLive/96kooLive",
+    "pages/live/ucenter/uc-live/ucLive",
+    "pages/member/Member-payment/payment",
+    "pages/member/member-rePayment/member-rePayment",
+    "pages/member/ucenter/uc-member/ucMember",
+    "pages/coupon/coupon/coupon",
+    "pages/coupon/ucenter/uc-coupon/ucCoupon",
+    "pages/card/ucenter/uc-Coursecard/ucCourescard",
+    "pages/account/rechargeRepay/rechargeRepay",
+    "pages/account/recharge/recharge",
+    "pages/account/ucenter/uc-account/ucAccount",
+    "pages/bunding/bunding/bunding",
+    "pages/web/exam/exam"
+  ],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "因酷网校微信平台",
+    "navigationBarBackgroundColor": "#ff8053",
+    "backgroundColor": "#666"
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx0bf1f71be247baa0"
+  ],
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "plugins": {
+    "ccsdk": {
+      "version": "1.4.1",
+      "provider": "wxf7200395f7f6b071"
+    }
+  },
+  "debug": true,
+  "sitemapLocation": "sitemap.json"
+}

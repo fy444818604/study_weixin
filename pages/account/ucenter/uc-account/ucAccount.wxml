@@ -1,0 +1,62 @@
+<view class="uc-account-top">
+  <view class="uc-account-top-bg">
+    <image src='/img/account-top-bg.jpg'></image>
+  </view>
+  <view class="uc-account-top-nr">
+    <view class="uc-acc-top-name">账户余额 (元)</view>
+    <view class="uc-acc-top-numb">
+      <text class="symbol">￥</text>
+      <text class="money">{{userAccount.balance}}</text>
+    </view>
+    <view class="uc-acc-top-btn tac" bindtap='toRecharge'>
+      <text class="uc-acc-top-btn-in">充值</text>
+    </view>
+  </view>
+</view>
+<view class="uc-account-bottom">
+    <view class="uc-acc-b-title">
+      账户明细
+    </view>
+    <view class="uc-acc-b-list">
+      <block wx:if="{{accList.length>0}}">
+            <scroll-view scroll-y="true" bindscrolltolower="loadMore"  bindscrolltoupper="refesh" style="height: {{scrollHeight}}px">
+              <block wx:for="{{accList}}" wx:key="item">
+                <view class="uc-acc-b-item">
+                    <view class="uc-acc-b-item-info">
+                        <view class="uc-acc-b-it-left">
+                            <view class="purpose txtOf">{{item.description}}</view>
+                            <view class="time" >
+                              {{item.formateCreateTime}}
+                              <!-- <text>17:53</text>
+                              <text decode="{{true}}">&nbsp;&nbsp;&nbsp;</text>
+                              <text>2018-01-02</text> -->
+                            </view>
+                        </view>
+                        <view class="uc-acc-b-it-right">
+                          <text class="{{item.trxAmount<0?'c-red':'c-green'}}">{{item.trxAmount}}</text>
+                        </view>
+                    </view>
+                </view>
+                <!-- <view class="uc-acc-b-item">
+                    <view class="uc-acc-b-item-info">
+                        <view class="uc-acc-b-it-left">
+                            <view class="purpose txtOf">小学数学 名家讲师解答</view>
+                            <view class="time" >
+                              <text>17:53</text>
+                              <text decode="{{true}}">&nbsp;&nbsp;&nbsp;</text>
+                              <text>2018-01-02</text>
+                            </view>
+                        </view>
+                        <view class="uc-acc-b-it-right">
+                          <text class="c-red">-100.00</text>
+                        </view>
+                    </view>
+                </view> -->
+              </block>
+            </scroll-view>
+      </block>
+      <block wx:else>
+        <view class="no-data-wrap"><image src="/img/no-context.png"></image></view>
+      </block>  
+    </view>
+</view>

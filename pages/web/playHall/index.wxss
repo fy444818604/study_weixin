@@ -1,0 +1,4 @@
+.graphic-box {padding: 10px; color: #333; line-height: 28px; font-size: 0.88rem;}
+.graphic-box image {max-width: 100%!important;height: auto;}
+
+

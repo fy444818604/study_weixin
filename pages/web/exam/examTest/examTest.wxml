@@ -1,0 +1,58 @@
+<!--pages/web/exam/examTest/examTest.wxml-->
+<view class="container">
+  <view class="exam-top">
+    <view>
+      <text class="exam-name">{{name}}</text>
+      <text class="exam-title">-{{title}} (每题{{everyScore}}分,共{{everyScore*num}}分)</text>
+    </view>
+    <view>
+      <text class="exam-current">{{current+1}}</text>
+      <text class="exam-all">/{{list.length}}</text>
+    </view>
+  </view>
+  <view>
+    <swiper bindchange="examChange">
+        <block wx:for="{{list}}" wx:key="*this">
+          <swiper-item>
+            <view class="exam-block">
+              <view>{{index+1}}.{{item.qstContent}}</view>
+              <block wx:if="{{isTxt}}">
+                <view wx:for="{{item.optionList}}" class="opt" bindtap="optSelect" data-index="{{index}}">
+                  <view class="{{item.active?'active':''}} opt-option">{{item.optOrder}}</view>
+                  <view>{{item.optContent}}</view>
+                </view>
+              </block>
+              <block wx:else>
+                <textarea placeholder="请输入" class="text"></textarea>
+              </block>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+  </view>
+  <view class="count">
+    <view>{{countStr}}</view>
+  </view>
+  <view class="exam-btm">
+    <view class="exam-btm-item" bindtap="pause">
+      <image src="../../../../img/pause.png"></image>
+      <view class="exam-fun">暂停计时</view>
+    </view>
+    <view class="exam-btm-item" bindtap="nextExam">
+      <image src="../../../../img/pause.png"></image>
+      <view class="exam-fun">下次再做</view>
+    </view>
+    <view class="exam-btm-item">
+      <image src="../../../../img/pause.png"></image>
+      <view class="exam-fun">答题卡</view>
+    </view>
+    <view class="exam-btm-item">
+      <image src="../../../../img/pause.png"></image>
+      <view class="exam-fun">计算器</view>
+    </view>
+    <view class="exam-btm-item" bindtap="submitExam">
+      <image src="../../../../img/pause.png"></image>
+      <view class="exam-fun">交卷</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,118 @@
+<view class="courseInfor-con-in">
+  <view class="courseInfor-con-in-head">
+    <view class="courIn-con-in-head-list" bindtap="switchContent">
+      <view class="courIn-li-warp">
+        <text mode="aspectFill" data-type="intro">介绍</text>
+      </view>
+      <view class="courIn-li-warp">
+        <text class="selected" mode="aspectFill" data-type="catlog">目录</text>
+      </view>
+      <view class="courIn-li-warp">
+        <text mode="aspectFill" data-type="review">评论</text>
+      </view>
+    </view>
+  </view>
+  <view class="courseInfor-con-in-body">
+    <block wx:if="{{course.sellType == 'PACKAGE'}}">
+      <block wx:for="{{courseListOfPackge}}" wx:for-index="cdx" wx:for-item="item">
+        <view class="course-item-li" data-courseid="{{item.courseId}}" catchtap="openCourse" hover-class="navigator-hover">
+          <view class="course-item">
+            <view class="cou-item-pic">
+              <image class="pic" src='{{host}}{{item.logo}}'></image>
+            </view>
+            <view class="cou-item-txt">
+              <view class="cou-item-txt-info">
+                <view class="item-txt-title hLh20 txtOf">
+                  <text class="c-333">{{item.courseName}}</text>
+                </view>
+                <view class="item-txt-teach hLh20 txtOf mt5">
+                  <!-- <text class="c-666">讲师：</text>
+                  <text class="teach-name c-666">名字1</text>
+                  <text class="teach-name c-666">名字2</text> -->
+                </view>
+                <view class="item-txt-art mt5 hLh20">
+                  <view class="price-warp">
+                    <text class="price-text c-green" wx:if="{{item.currentPrice==0&&hasBuy=='true'}}">免费</text>
+                    <text class="price-text c-master" wx:elif="{{item.currentPrice>0&&hasBuy=='true'}}">￥{{item.currentPrice}}</text>
+                  </view>
+                  <view class="purchase-warp">
+                    <text class="c-999" wx:if="{{hasBuy=='true'}}">{{item.pageBuycount}}人报名</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>  
+    </block>
+    <block wx:else>
+      <view class="menu">
+     <block wx:for="{{couKpoint}}" wx:for-index="cdx" wx:for-item="chapter">
+       <view class="menu-chapter">
+        <view class="menu-chapter-name {{chapter.flag? 'active' : ''}}" data-param="{{cdx}}" bindtap='showChapter'>
+          <text class="name">{{chapter.name}}</text>
+        </view>
+          <block wx:for="{{chapter.kpointList}}" wx:for-index="kdx" wx:for-item="kpoint">
+            <view class="menu-joint {{chapter.flag? 'showClass' : 'hideClass'}}" hover-class='navigator-hover'>
+              <block wx:if="{{currentKpointId==kpoint.kpointId}}">
+                <view class="current menu-joint-warp"  bindtap="openKpoint" data-kpointid="{{kpoint.kpointId}}" data-type="{{kpoint.fileType}}" data-url="{{kpoint.videoUrl}}" data-content="{{kpoint.content}}">
+                  <view class="menu-joint-name txtOf">
+                     <view wx:if="{{kpoint.fileType==='VIDEO'}}" class="joint-name-ico wui-iconfont wui-icon-shipin1"></view>
+                    <view wx:if="{{kpoint.fileType==='AUDIO'}}" class="joint-name-ico wui-iconfont wui-icon-daoxueyinpinku"></view>
+                    <view wx:if="{{kpoint.fileType==='PDF'}}" class="joint-name-ico wui-iconfont wui-icon-filepdfo"></view>
+                    <view wx:if="{{kpoint.fileType==='TXT'}}" class="joint-name-ico wui-iconfont wui-icon-wendang"></view>
+                    <view wx:if="{{kpoint.fileType==='ATLAS'}}" class="joint-name-ico wui-iconfont wui-icon-album"></view>
+                    <view wx:if="{{kpoint.fileType==='LIVE'}}" class="joint-name-ico wui-iconfont wui-icon-zhibo1"></view>
+                    <text class="joint-name-txt" data-kpointid="{{kpoint.kpointId}}">{{kpoint.name}}</text>
+                  </view>
+                </view>
+              </block>
+              <block wx:else>
+                <view class="menu-joint-warp" bindtap="openKpoint" bindtap="openKpoint" data-kpointid="{{kpoint.kpointId}}" data-type="{{kpoint.fileType}}" data-url="{{kpoint.videoUrl}}" data-content="{{kpoint.content}}" data-name="{{kpoint.name}}">
+                  <view class="menu-joint-name txtOf">
+                    <view wx:if="{{kpoint.fileType==='VIDEO'}}" class="joint-name-ico wui-iconfont wui-icon-shipin1"></view>
+                    <view wx:if="{{kpoint.fileType==='AUDIO'}}" class="joint-name-ico wui-iconfont wui-icon-daoxueyinpinku"></view>
+                    <view wx:if="{{kpoint.fileType==='PDF'}}" class="joint-name-ico wui-iconfont wui-icon-pdf"></view>
+                    <view wx:if="{{kpoint.fileType==='TXT'}}" class="joint-name-ico wui-iconfont wui-icon-wendang"></view>
+                    <view wx:if="{{kpoint.fileType==='ATLAS'}}" class="joint-name-ico wui-iconfont wui-icon-album"></view>
+                    <view wx:if="{{kpoint.fileType==='LIVE'}}" class="joint-name-ico wui-iconfont wui-icon-zhibo1"></view>
+                    <text class="joint-name-txt" data-kpointid="{{kpoint.kpointId}}">{{kpoint.name}}</text>
+                    <text wx:if="{{course.sellType == 'LIVE'}}" class="joint-name-Numb">{{kpoint.liveBeginTime}}~{{kpoint.liveEndTime}}</text>
+                    <view wx:if="{{kpoint.free==1&&isPay==false}}" class="joint-name-stBtn" data-kpointid="{{kpoint.kpointId}}">试听</view>
+                    
+                    
+                    <view class="joint-name-stBtnIcon "></view>
+                  </view>
+                </view>
+              </block>
+            </view>
+          </block>
+        </view>  
+      </block> 
+    </view>
+    </block>
+  </view>
+</view>
+<view class="courseInfor-foot">
+  <view class="couIn-fot-info">
+    <view class="couIn-fot-buy">
+      <view class="couIn-fot-buy-name">
+        <view class="name txtOf">
+          <text>{{course.courseName}}</text>
+        </view>
+        <view class="price">
+          <text class="c-green" wx:if="{{course.currentPrice==0&&hasBuy=='true'}}">免费</text>
+          <text class="c-master" wx:elif="{{course.currentPrice>0&&hasBuy=='true'}}">￥{{course.currentPrice}}</text>
+        </view>
+      </view>
+      <view class="couIn-fot-buy-btn">
+       <view wx:if="{{course.currentPrice>0&&isPay==false&&hasBuy=='true'}}" class="buy-btn" bindtap="buyTap">
+          <text>立即报名</text>
+        </view>
+        <view wx:elif="{{course.currentPrice==0 || isPay==ture || hasBuy=='true'}}" class="buy-btn" bindtap="openKpoint" data-kpointid="{{couKpoint[0].kpointList[0].kpointId}}" data-type="{{couKpoint[0].kpointList[0].fileType}}" data-url="{{couKpoint[0].kpointList[0].videoUrl}}" data-content="{{couKpoint[0].kpointList[0].content}}">
+          <text>立即学习</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,82 @@
+Page{
+  background: #f5f5f5;
+}
+.rech-top{
+  height: 100rpx;
+  margin-top: 20rpx;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 0 20rpx;
+  line-height: 100rpx;
+}
+.rech-top-ico{
+  width: 38rpx;
+  height: 38rpx;
+  margin-right: 10rpx;
+  margin-top: 33rpx;
+}
+.rech-top-ico image{
+  display: block;
+  width: 38rpx;
+  height: 38rpx;
+}
+.rech-top-name{
+  font-size: 32rpx;
+  color: #333;
+}
+.rech-top-lable{
+  height: 38rpx;
+  margin-top: 22rpx;
+}
+.rech-top-lable input{
+  height: 38rpx;
+  padding: 0 20rpx;
+  color: #ff8053;
+  font-size: 32rpx;
+}
+.pay-middle{
+  margin-top:20rpx;
+  background: #fff;
+}
+.pay-middle-title text{
+  padding: 10rpx 20rpx;
+  font-size: 36rpx;
+  line-height: 80rpx;
+}
+.pay-middle-item{
+  padding: 35rpx;
+}
+.pay-wx-ico{
+  display: inline-block;
+  width: 82rpx;
+  height: 82rpx;
+  margin-right: 20rpx;
+  vertical-align: middle;
+  }
+  .pay-wx-name{
+    display: inline-block;
+    line-height: 82rpx;
+    color: #666;
+    font-size: 32rpx;
+  }
+  .pay-middle-it-nr{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    line-height: 80rpx;
+  }
+
+  .buy-btn {
+  width:80%;
+  height:80rpx;
+  line-height:80rpx;
+  text-align:center;
+  color:#fff;
+  font-size:32rpx;
+  border-radius:6px;
+  background:#ff652f;
+  margin:70rpx auto;
+
+}

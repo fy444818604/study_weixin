@@ -1,0 +1,50 @@
+<view class="courseInfor-con-in">
+  <view class="courseInfor-con-in-head">
+    <view class="courIn-con-in-head-list" bindtap="switchContent">
+      <view class="courIn-li-warp">
+        <text class="selected" mode="aspectFill" data-type="intro">介绍</text>
+      </view>
+      <view class="courIn-li-warp">
+        <text mode="aspectFill" data-type="catlog">目录</text>
+      </view>
+      <view class="courIn-li-warp">
+        <text mode="aspectFill" data-type="review">评论</text>
+      </view>
+    </view>
+  </view>
+  <view class="courseInfor-con-in-body">
+  <block wx:if="{{course.context != ''}}">
+    <view class="introduce">
+       <rich-text class="course-context" nodes="{{course.context}}"></rich-text>
+    </view>
+  </block>
+  <block wx:else>
+      <view class="review-warp">
+         <view class="no-data-wrap"><image class="no-course-pj" src="/img/no-course-jj.png"></image></view>
+      </view>
+    </block>  
+  </view>
+</view>
+<view class="courseInfor-foot">
+  <view class="couIn-fot-info">
+    <view class="couIn-fot-buy">
+      <view class="couIn-fot-buy-name">
+        <view class="name txtOf">
+          <text>{{course.courseName}}</text>
+        </view>
+        <view class="price">
+          <text class="c-green" wx:if="{{course.currentPrice==0&&hasBuy=='true'}}">免费</text>
+          <text class="c-master" wx:elif="{{course.currentPrice>0&&hasBuy=='true'}}">￥{{course.currentPrice}}</text>
+        </view>
+      </view>
+      <view class="couIn-fot-buy-btn">
+        <view wx:if="{{course.currentPrice>0&&isPay==false&&hasBuy=='true'}}" class="buy-btn" bindtap="buyTap">
+          <text>立即报名</text>
+        </view>
+        <view wx:elif="{{course.currentPrice==0 || isPay==ture || hasBuy=='true'}}" class="buy-btn" bindtap="openKpoint">
+          <text>立即学习</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

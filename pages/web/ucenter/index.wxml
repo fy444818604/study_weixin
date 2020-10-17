@@ -1,0 +1,18 @@
+<!--pages/web/ucenter/index.wxml-->
+
+ <view class="login-wrap">
+      <view class="login-top-box">
+          <view class="login-top-bg">
+            <image src="/img/login-top-bg.jpg" />
+          </view>
+          <view class="login-tit-pic">
+            <image src='/img/login_head.png' mode='widthFix' />
+          </view>
+          <view class="login-name tac hLh30 c-fff">
+            <text></text>
+          </view>
+      </view>
+      <view class="login_body" > 
+        
+      </view>
+  </view>

@@ -1,0 +1,78 @@
+<view class="oder-content">
+  <view class="oder-header">
+      <view class="oder-header-links">
+         <view class="header-links-warp" bindtap="updStateQuery" data-state="ALL">
+           <text class="{{state=='ALL'?'selected':''}}">全部</text>
+         </view>
+         <view class="header-links-warp" bindtap="updStateQuery" data-state="SUCCESS">
+           <text class="{{state=='SUCCESS'?'selected':''}}">已完成</text>
+         </view>
+         <view class="header-links-warp" bindtap="updStateQuery" data-state="INIT">
+           <text class="{{state=='INIT'?'selected':''}}">待支付</text>
+         </view>
+      </view>
+    </view>
+    <view class="oder-body">
+      <block wx:if="{{orderList.length>0}}">
+        <scroll-view scroll-y="true" bindscrolltolower="loadMore"  bindscrolltoupper="refesh" style="height: {{scrollHeight}}px">
+          <block wx:for="{{orderList}}" wx:key="key">
+              <view class="oder-body-item">
+                <view class="oder-number">
+                  <view class="c-666 oder-number-l">订单号：{{item.orderNo}}</view>
+                  <view class="c-red oder-number-r">
+                      <block wx:if="{{item.states==='SUCCESS'}}"> 
+                        购买成功
+                      </block>
+                      <block wx:if="{{item.states==='INIT'}}">
+                        未完成
+                      </block>
+                      <block wx:if="{{item.states==='CANCEL'}}">
+                        已取消订单
+                      </block>
+                      <block wx:if="{{item.states==='REFUND'}}">
+                        已退款
+                      </block>
+
+                  </view>
+                </view>
+                <view class="oder-coures">
+                  <block wx:for="{{item.trxorderDetailList}}" wx:for-item="orderDetail" wx:key="key2">
+                    <view class="course-item-li" data-courseid="{{orderDetail.courseId}}" data-trxordertype="{{orderDetail.trxorderType}}" catchtap="openCourse" hover-class="navigator-hover">
+                      <view class="course-item">
+                        <view class="cou-item-pic">
+                          <image class="pic" src='{{host}}{{orderDetail.courseImgUrl}}'></image>
+                        </view>
+                        <view class="cou-item-txt">
+                          <view class="cou-item-txt-info">
+                            <view class="item-txt-title hLh30 txtOf mt5">
+                              <text class="c-333">{{orderDetail.courseName}}</text>
+                            </view>
+                            <view class="item-txt-art mt10 hLh20">
+                              <view class="price-warp">
+                                <text class="price-text c-master">￥{{orderDetail.currentPirce}}</text>
+                              </view>
+                              <view class="purchase-warp">
+                                <text class="c-666">{{item.createTime}}</text>
+                              </view>
+                            </view>
+                          </view>
+                        </view>
+                      </view>
+                    </view>
+                  </block>
+                </view>
+                <block wx:if="{{item.states==='INIT'}}">
+                  <view class="oder-btn clearfix">
+                    <view class="oder-btn-info btn-info-master-k" bindtap='repayoder' data-orderid='{{item.orderId}}' data-ordertype='{{item.orderType}}'>立即支付</view>
+                    <view class="oder-btn-info btn-info-gray-k" bindtap='cancleoder' data-orderid='{{item.orderId}}'>取消订单</view>
+                  </view>
+                </block>
+              </view>
+            </block>
+          </scroll-view>
+      </block>
+      <block wx:else>
+        <view class="no-data-wrap"><image src="/img/no-context.png"></image></view>
+      </block>
+    </view>
+</view>

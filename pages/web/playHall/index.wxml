@@ -1,0 +1,6 @@
+<scroll-view scroll-y="true" style="height: 100%;" scroll-into-view="{{toView}}" upper-threshold="5" lower-threshold="5" bindscrolltoupper="refresh" bindscrolltolower="loadMore">
+     <view class="graphic-box">
+        <rich-text class="course-context" nodes="{{kpointContent}}"></rich-text>
+      </view>
+</scroll-view>
+

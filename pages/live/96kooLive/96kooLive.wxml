@@ -1,0 +1,1 @@
+<web-view src="http://www.96koo.net/common/live/loginClient?userRole=0&roomId={{roomId}}&password={{password}}&nickname={{nickname}}" />

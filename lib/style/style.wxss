@@ -1,0 +1,63 @@
+ol, ul, li { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+:focus { outline: 0; }
+ins { text-decoration: none; }
+del { text-decoration: line-through; }
+table { border-collapse: collapse; border-spacing: 0; }
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  float:none !important;
+}
+table, th, td {
+  vertical-align: middle;
+}
+em,i {font-style:normal;}
+a,img { border: none; text-decoration:none; }
+:focus { outline: 0; }
+h1,h2,h3,h4,h5,h6 {font-weight: normal;}
+.clearfix:before, .clearfix:after { content: ""; display: table; font-size:0 !important; line-height:0!important; height:0!important;}  
+.clearfix:after { clear: both; }
+.clear {clear: both;display: block;overflow: hidden;visibility: hidden;width: 0;height: 0;}
+.hLh20 {height: 20px;line-height: 20px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.hLh30 {height: 30px;line-height: 30px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.txtOf{text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
+.fl {float: left;}
+.fr {float: right;}
+.of {overflow: hidden;}
+.pr {position: relative;}
+.pa {position: absolute; }
+.tac {text-align: center;}
+.tar {text-align: right;}
+.vam {vertical-align: middle;}
+.dis {display: block !important;}
+.unBr {border: none !important;}
+.f-fH {font-family: 'SimHei';}
+.f-fM {font-family: 'Microsoft YaHei';}
+.f-fA {font-family: 'SimSun';}
+.f-fG {font-family: 'Georgia';}
+.hand {cursor: pointer;}
+.zoom {_zoom: 1;}
+.c-master {color: #ff8053;}
+.c-green{color: #00e32b;}
+.c-red {color: #f04040;}
+.c-333 {color: #333;}
+.c-666 {color: #666;}
+.c-999 {color: #999;}
+.c-ccc {color: #ccc;}
+.c-fff {color: #fff;}
+.c-e5 {color: #e5e5e5;}
+.bg-f8 {background-color: #f8f8f8;}
+.bg-fff {background-color: #fff;}
+.bg-fa {background-color: #fafafa;}
+.mt5{margin-top: 5px;}
+.mt10{margin-top: 10px;}
+.mt20{margin-top: 20px;}
+.mt30{margin-top: 30px;}
+.mr5{margin-right: 5px;}
+.mr10{margin-right: 10px;}
+.mr20{margin-right: 20px;}
+.mr30{margin-right: 30px;}
+.btn-info-gray-k{border: 1px solid #666666;color: #666;}
+.btn-info-master-k{border: 1px solid #ff571b;color: #ff571b;}

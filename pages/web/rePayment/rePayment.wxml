@@ -1,0 +1,80 @@
+<view class="pay-top">
+  <view class="course-item-li" data-courseid="{{course.courseId}}">
+    <block wx:for="{{orderList}}" wx:key="item">
+      <view class="course-item">
+        <view class="cou-item-pic">
+          <image class="pic" src='{{host}}{{item.courseLogo}}'></image>
+        </view>
+        <view class="cou-item-txt">
+        
+            <view class="cou-item-txt-info">
+              <view class="item-txt-title hLh20 txtOf">
+                <text class="c-333">{{item.courseName}}</text>
+              </view>
+              <block wx:if="{{item.teacherList.length>0}}">
+                  <view class="item-txt-teach hLh20 txtOf mt5">
+                    <text class="c-666">讲师：</text>
+                      <block wx:for="{{item.teacherList}}" wx:for-item="teacher" wx:key="key2">
+                          <text class="teach-name c-666">{{teacher.name}}</text>
+                      </block>    
+                  </view>
+              </block>
+              
+              <view class="item-txt-art mt5 hLh20">
+                <view class="price-warp">
+                  <text class="price-text c-master">￥{{item.currentPrice}}</text>
+                </view>
+              </view>
+            </view>
+        
+        </view>
+      </view>
+    </block>  
+  </view>
+  <view class="pay-Coupon-warp" wx:if="{{serviceSwitch.coupon=='ON'}}">
+      <view class="pay-Coupon-left">
+        <view>
+          <text class="coupon-title">优惠券</text>
+          <text class="coupon-number">{{couponList.length}}张可用</text>
+        </view>
+      </view>
+      <view class="pay-Coupon-right">
+        <view>
+          <text class="coupon-state" wx:if="{{yhmoney>0}}">优惠券抵扣{{yhmoney}}</text>
+          <text class="coupon-state" wx:if="{{couponList.length==0}}">暂无优惠券可用</text>
+          <text class="wui-iconfont wui-icon-youjiantou1" wx:elif="{{couponList.length > 0}}" bindtap='couponTap'></text>
+        </view>
+      </view>
+  </view>
+</view>
+<view class="pay-middle">
+    <view class="pay-middle-title">
+      <text>支付方式</text>
+    </view>
+    <view class="pay-middle-item line-bottom">
+        <image src='/img/wx-buy-ico.png' class="pay-wx-ico"></image>
+        <text class="pay-wx-name">微信支付</text>
+    </view>
+    <view class="pay-middle-item" wx:if="{{serviceSwitch.account=='ON'}}">
+        <view class="pay-middle-it-nr">
+          <view class="pay-balance">账户余额</view>
+          <view class="pay-balance-number">￥{{userAccount.balance}}</view>
+        </view>
+        <view class="pay-middle-it-zs">优先使用余额支付，余额不足，使用其他方式支付剩余金额。</view>
+    </view>
+</view>
+<view class="pay-bottom">
+  <view class="pay-bottom-info">
+    <view class="couIn-fot-buy">
+      <view class="couIn-fot-buy-name">
+        <text class="left">实付金额：</text>
+        <text class="right">￥{{totalPayMoney}}</text>
+      </view>
+      <view class="couIn-fot-buy-btn">
+        <view class="buy-btn" bindtap='toPay'>
+          <text>确认支付</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

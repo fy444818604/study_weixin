@@ -1,0 +1,50 @@
+<loading hidden="{{loadingHidden}}"> 
+    拼命加载中...
+</loading>
+<view class="account-title">
+    个人信息
+</view>
+<scroll-view scroll-y="true" style="height: 100%;" scroll-into-view="{{toView}}" upper-threshold="5" lower-threshold="5" bindscrolltoupper="refresh" bindscrolltolower="loadMore">
+   <form bindsubmit="basicFormSubmit" bindreset="formReset" >
+    <view class="u-account-wrap">
+         <view class="account-item">
+          <view class="account__title">账号</view>
+          <input name="userName" placeholder="输入账号" value="{{user.userName}}" disabled='{{user.userName?true:false}}'/>
+        </view>
+        <view class="account-item">
+          <view class="account__title">昵称</view>
+          <input name="showName" placeholder="输入昵称" value="{{user.showName}}" />
+        </view>
+         <view class="account-item">
+          <view class="account__title">手机</view>
+          <input name="mobile" placeholder="输入手机" value="{{user.mobile}}"  disabled='{{user.mobile?true:false}}'/>
+        </view>
+         <view class="account-item">
+          <view class="account__title">邮箱</view>
+          <input name="email" placeholder="输入邮箱" value="{{user.email}}"  disabled='{{user.email?true:false}}'/>
+        </view>
+        <!-- <view class="account-item">
+          <view class="account__title">姓名</view>
+          <input name="realName" placeholder="输入真实姓名" value="{{user.realName}}" />
+        </view>
+         <view class="account-item">
+          <view class="account__title">学校</view>
+          <input name="school" placeholder="输入学校" value="{{user.school}}" />
+        </view>
+         <view class="account-item">
+          <view class="account__title">专业</view>
+          <input name="subject" placeholder="输入专业" value="{{user.subject}}" />
+        </view> -->
+        <!-- <view class="account-item">
+          <view class="account__title">性别</view>
+          <radio-group name="radiogroup">
+            <label><radio value="0" checked="{{user.gender==0?true:false}}"/>男</label>
+            <label class="ml30"><radio value="1" checked="{{user.gender==1?true:false}}" />女</label>
+          </radio-group>
+        </view>  -->
+        <view class="btn-area">
+          <button formType="submit" class="primary-btn">修改</button>
+        </view>
+      </view>
+  </form>
+</scroll-view>

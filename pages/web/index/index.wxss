@@ -1,0 +1,18 @@
+/**index.wxss**/
+.swiper-pic {width: 750rpx;height: 310rpx;}
+#swiper-view {height: 310rpx;width: 750rpx;}
+.index-title{height: 70rpx;background: #f8f8f8;}
+.coures-warp{margin: 20rpx 0 40rpx;}
+.in-tit-left{border-left:8rpx solid #ff8053;line-height: 70rpx;color: #333333;font-size: 32rpx;padding-left: 20rpx;}
+.in-more-btn{color: #999;font-size: 28rpx;line-height: 70rpx;}
+.in-more-btn-jt{display: inline-block;color: #999;font-size: 34rpx;margin-right: 10rpx;margin-top: 1rpx;}
+.in-course-li-warp{width: 50%;float: left;}
+.course-item-box{margin: 25rpx 15rpx 0;}
+.course-item-pic,.course-item-pic image{display: block;width: 100%;height: 200rpx;}
+.course-item-title{margin: 5rpx 5rpx 0;}
+.title-text{color: #333;font-size: 30rpx;height: 50rpx;line-height: 50rpx;}
+.course-item-price{margin: 0 5rpx;}
+.course-item-price text{font-size: 22rpx;height: 30rpx;line-height: 30rpx;}
+.navigator-hover{background-color: rgba(0, 0, 0, 0); opacity: 0.9;}
+.navigator-hover .title-text{color: #ff8053;}
+

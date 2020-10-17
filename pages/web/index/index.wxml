@@ -1,0 +1,104 @@
+<!--index.wxml-->
+<loading hidden="{{loadingHidden}}"> 
+    拼命加载中...
+</loading>
+<scroll-view scroll-y="true" style="height: 100%;" scroll-into-view="{{toView}}" upper-threshold="5" lower-threshold="5" bindscrolltoupper="refresh" bindscrolltolower="loadMore">
+   <swiper indicator-dots="{{indicatorDots}}" id="swiper-view" autoplay="{{autoplay}}" interval="{{interval}}" indicator-color="rgba(255,255,255,0.8)" indicator-active-color="rgba(255,128,83,1)" circular="{{circular}}">
+        <block wx:for="{{imgUrls}}">
+            <swiper-item>
+                <image id="{{item.linkAddress}}" bindtap="openCourse" src="{{host}}{{item.imagesUrl}}" width="100%" mode="widthFix"  class="swiper-pic"/>
+            </swiper-item>
+        </block>
+    </swiper>
+    <view class="coures-warp">
+      <view class="index-title clearfix">
+        <view class="in-more-btn fr">
+          <navigator url="/pages/web/course/courseList" hover-class="none" >
+            更多<view class="in-more-btn-jt wui-iconfont wui-icon-youjiantou1"></view>
+          </navigator>
+        </view>
+        <view class="in-tit-left">推荐课程</view>
+      </view>
+      <view class="in-course-list clearfix">
+        <block wx:for="{{freeCourseList}}">
+          <view class="in-course-li-warp">
+            <view class="course-item-box"  id="{{item.courseId}}" bindtap="openCourse" hover-class="navigator-hover">
+              <view class="course-item-pic">
+                <image src="{{host}}{{item.logo}}" />
+              </view>
+              <view class="course-item-title txtOf">
+                <text class="title-text ">{{item.courseName}}</text>
+              </view>
+              <view class="course-item-price clearfix">
+                <text class="fl price-text c-green" wx:if="{{item.currentPrice==0&&hasBuy=='true'}}">免费</text>
+                <text class="fl price-text c-green" wx:elif="{{item.currentPrice>0&&hasBuy=='true'}}">￥{{item.currentPrice}}</text>
+                <text class="fr purchase-text c-999 mr5" wx:if="{{hasBuy=='true'}}">{{item.pageBuycount}}人报名</text>
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+    <view class="coures-warp">
+      <view class="index-title clearfix">
+        <view class="in-more-btn fr">
+          <navigator url="/pages/web/course/courseList" hover-class="none" >
+            更多<view class="in-more-btn-jt wui-iconfont wui-icon-youjiantou1"></view>
+          </navigator>
+        </view>
+        <view class="in-tit-left">精品课程</view>
+      </view>
+      <view class="in-course-list clearfix">
+        <block wx:for="{{excellentCourse}}">
+          <view class="in-course-li-warp">
+            <view class="course-item-box" id="{{item.courseId}}" bindtap="openCourse" hover-class="navigator-hover">
+              <view class="course-item-pic">
+                <image src="{{host}}{{item.logo}}" />
+              </view>
+              <view class="course-item-title txtOf">
+                <text class="title-text ">{{item.courseName}}</text>
+              </view>
+              <view class="course-item-price clearfix">
+                <text class="fl price-text c-green" wx:if="{{item.currentPrice==0&&hasBuy=='true'}}">免费</text>
+                <text class="fl price-text c-master" wx:elif="{{item.currentPrice>0&&hasBuy=='true'}}">￥{{item.currentPrice}}</text>
+                <text class="fr purchase-text c-999 mr5" wx:if="{{hasBuy=='true'}}">{{item.pageBuycount}}人报名</text>
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+    <view class="coures-warp">
+      <view class="index-title clearfix">
+        <view class="in-more-btn fr">
+          <navigator url="/pages/web/course/courseList" hover-class="none" >
+            更多<view class="in-more-btn-jt wui-iconfont wui-icon-youjiantou1"></view>
+          </navigator>
+        </view>
+        <view class="in-tit-left">热门课程</view>
+      </view>
+      <view class="in-course-list clearfix">
+        <block wx:for="{{hotCourse}}">
+          <view class="in-course-li-warp">
+            <view class="course-item-box" id="{{item.courseId}}" bindtap="openCourse" hover-class="navigator-hover">
+              <view class="course-item-pic">
+                <image src="{{host}}{{item.logo}}" />
+              </view>
+              <view class="course-item-title txtOf">
+                <text class="title-text ">{{item.courseName}}</text>
+              </view>
+              <view class="course-item-price clearfix">
+                <text class="fl price-text c-green" wx:if="{{item.currentPrice==0&&hasBuy=='true'}}">免费</text>
+                <text class="fl price-text c-master" wx:elif="{{item.currentPrice>0&&hasBuy=='true'}}">￥{{item.currentPrice}}</text>
+                <text class="fr purchase-text c-999 mr5" wx:if="{{hasBuy=='true'}}">{{item.pageBuycount}}人报名</text>
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+</scroll-view>
+<!--index.wxml-->
+<!--tabbar-->
+<import src="/pages/template/tabbar.wxml"/>
+<template is="tabBar" data="{{tabBar:tabBar}}"></template>

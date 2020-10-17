@@ -1,0 +1,46 @@
+<view class="coupon-content">
+    <view class="coupon-header">
+      <view class="coupon-header-links">
+         <view class="header-links-warp">
+           <text >未使用（3）</text>
+         </view>
+         <view class="header-links-warp">
+           <text >使用记录（3）</text>
+         </view>
+         <view class="header-links-warp">
+           <text class="selected">已过期（3）</text>
+         </view>
+      </view>
+    </view>
+    <view class="coupon-body">
+      <view class="coupon-item coupon-item-ygq">
+        <view class="coupon-item-left">
+          <view class="coupon-item-l-top clearfix">
+            <view class="coupon-it-jg">
+              50
+            </view>
+            <view class="coupon-it-jg-nr">
+              <view class="jg-nr-top">元优惠券</view>
+              <view class="jg-nr-bottom">
+                <text>满</text>
+                <text class="red">400</text>
+                <text>元即可使用</text>
+              </view>
+            </view>
+          </view>
+          <view class="coupon-item-l-bottom">
+            <text decode="{{true}}">编&nbsp;&nbsp;&nbsp;号：11111111111111111111</text>
+            <text>有效期：2017.04.05-2018.01.02</text>
+          </view>
+        </view>
+        <view class="coupon-item-right">
+          <view class="coupon-item-line">
+            <image src='/img/coupon-line-bg-ygq.jpg' class="line-bg"></image>
+          </view>
+          <view class="coupon-item-r-txt">
+            <text>已过期</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>

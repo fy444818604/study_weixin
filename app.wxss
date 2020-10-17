@@ -1,0 +1,17 @@
+/**app.wxss**/
+@import 'lib/fonts/iconfont.wxss';
+@import 'lib/style/style.wxss';
+@import '/pages/template/tabbar.wxss';
+page {
+  background: #fff;
+  height: 100%;
+  font-family: 'Microsoft YaHei'
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  box-sizing: border-box;
+} 
+

@@ -1,0 +1,169 @@
+/* pages/web/payment/payment.wxss */
+page{background-color:#f8f8f8;}  
+.pay-top{margin-top: 20rpx;background: #fff;}
+.course-item{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 20rpx;
+}
+.cou-item-pic{
+  width: 253rpx;
+  height: 141rpx;
+  margin: 0 20rpx;
+}
+.cou-item-pic .pic{
+  width: 253rpx;
+  height: 141rpx;
+  display: block;  
+}
+.cou-item-txt{
+  position: relative;
+    min-height: 2.2rem;
+    padding-right: 0.75rem;
+    width: 100%;
+    overflow: hidden;
+}
+.item-txt-title text{
+  font-size: 32rpx;
+}
+.item-txt-teach text{
+  font-size: 26rpx;
+}
+.teach-name{
+  margin-right: 15rpx;
+}
+.item-txt-art{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.item-txt-art text{
+  font-size: 26rpx;
+}
+.pay-Coupon-warp{
+  height: 110rpx;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  border-top:1px solid #dddddd;
+}
+.pay-Coupon-warp{
+  padding: 0 20rpx;
+}
+.coupon-title{
+  line-height: 110rpx;
+  display: inline-block;
+  font-size: 34rpx;
+}
+.coupon-number{
+  display: inline-block;
+  margin-left: 20rpx;
+  width: 136rpx;
+  height: 50rpx;
+  background: #ff8053;
+  color: #fff;
+  text-align: center;
+  line-height: 50rpx;
+  font-size: 24rpx;
+}
+.pay-Coupon-right text{
+  line-height: 110rpx;
+  font-size: 26rpx;
+  margin-left: 10rpx;
+  color:#999;
+}
+.pay-middle{
+  margin-top:20rpx;
+  background: #fff;
+}
+.pay-middle-title text{
+  padding: 10rpx 20rpx;
+  font-size: 36rpx;
+  line-height: 80rpx;
+}
+.pay-middle-item{
+  padding: 35rpx;
+}
+.pay-middle-item.line-bottom{
+  border-bottom:1px solid #ddd;
+}
+.pay-wx-ico{
+  display: inline-block;
+  width: 82rpx;
+  height: 82rpx;
+  margin-right: 20rpx;
+  vertical-align: middle;
+  }
+  .pay-wx-name{
+    display: inline-block;
+    line-height: 82rpx;
+    color: #666;
+    font-size: 32rpx;
+  }
+  .pay-middle-it-nr{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    line-height: 80rpx;
+  }
+  .pay-balance{
+    font-size: 32rpx;
+    line-height: 80rpx;
+    color: #999;
+  }
+  .pay-balance-number{
+     font-size: 36rpx;
+     line-height: 80rpx;
+     color: #fc1b38;
+  }
+  .pay-middle-it-zs{
+    font-size: 24rpx;
+    color:#999;
+    line-height: 32rpx;
+  }
+  .pay-bottom{
+    position:fixed;
+    bottom:0;
+    left:0;
+    height:140rpx;
+    background:#fafafa;
+    border-top:1px solid #eaeaea;
+    width:100%;
+    z-index:99;
+  }
+  .pay-bottom-info{
+    margin:0 20rpx;
+  }
+.couIn-fot-buy{
+  padding-right:260rpx;
+  position:relative;
+}
+.couIn-fot-buy-name text{
+  line-height: 140rpx;
+}
+.couIn-fot-buy-name .left{
+  color: #333;
+  font-size: 36rpx;
+}
+.couIn-fot-buy-name .right{
+  color: #ff4300;
+  font-size: 40rpx;
+}
+.couIn-fot-buy-btn {
+  position:absolute;
+  top:0;
+  right:0;
+}
+.buy-btn {
+  width:240rpx;
+  height:70rpx;
+  line-height:70rpx;
+  text-align:center;
+  color:#fff;
+  font-size:32rpx;
+  border-radius:6px;
+  background:#ff652f;
+  margin-top:35rpx;
+}
+

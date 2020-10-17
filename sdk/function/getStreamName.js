@@ -1,0 +1,1 @@
+var live=require("../server/live"),userData=require("../data/user");module.exports=function(e){return userData.isAudioSpeex(e)?"":live.getDownlinkStreamName(e.id,e.publishIndex)};

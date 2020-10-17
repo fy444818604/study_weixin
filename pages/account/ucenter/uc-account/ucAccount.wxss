@@ -1,0 +1,84 @@
+.uc-account-top{
+  height: 310rpx;
+  position: relative;
+}
+.uc-account-top-bg image{
+  display: block;
+  width: 100%;
+  height: 310rpx;
+}
+.uc-account-top-nr{
+  position: absolute;
+  width: 100%;
+  height: 310rpx;
+  z-index: 66;
+  top:0;
+  left: 0;
+}
+.uc-acc-top-btn{
+  margin-top: 30rpx;
+}
+.uc-acc-top-btn-in{
+  display: inline-block;
+  font-size: 26rpx;
+  line-height: 50rpx;
+  padding: 0 50rpx;
+  border: 1px solid #fff;
+  border-radius: 50rpx;
+  text-align: center;
+  color: #fff;
+}
+.uc-acc-top-name{
+  margin-top: 30rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 26rpx;
+  line-height: 50rpx;
+}
+.uc-acc-top-numb{
+  margin-top: 10rpx;
+  text-align: center;
+}
+.symbol{
+  font-size: 46rpx;
+  color: #fff;
+}
+.money{
+  font-size: 66rpx;
+  color: #fff;
+}
+.uc-acc-b-title{
+  border-bottom: 1px solid #dddddd;
+  height: 86rpx;
+  line-height: 86rpx;
+  padding: 0 20rpx;
+  color: #333;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.uc-acc-b-item{
+  border-bottom: 1px solid #dddddd;
+  padding: 10rpx 20rpx;
+}
+.uc-acc-b-item-info{
+  padding-right: 170rpx;
+  position: relative;
+}
+.purpose{
+  font-size: 32rpx;
+  line-height: 58rpx;
+  color: #666;
+}
+.time{
+  font-size: 26rpx;
+  line-height: 58rpx;
+  color: #999;
+}
+.uc-acc-b-it-right{
+  width: 160rpx;
+  position: absolute;
+  top:0;
+  right: 0;
+  line-height: 116rpx;
+  text-align: center;
+}

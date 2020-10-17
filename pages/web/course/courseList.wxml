@@ -1,0 +1,110 @@
+<!--pages/live/liveList/liveList.wxml-->
+<loading hidden="{{loadingHidden}}"> 
+    拼命加载中...
+</loading>
+<view class="container">
+<view class="filter-flex">
+    <view class="filter-tab">
+      <text bindtap="setFilterPanel" data-findex="1" class="{{showfilterindex==1?'active':''}}">课程专业</text>
+      <text bindtap="setFilterPanel" data-findex="2" class="{{showfilterindex==2?'active':''}}">排序方式</text>
+      <text bindtap="setFilterPanel" data-findex="3" class="{{showfilterindex==3?'active':''}}">条件筛选</text>
+    </view>
+    <view class="filter-content" wx:if="{{showfilter}}">
+      <view class="filter-panel" wx:if="{{showfilterindex==1}}">
+        <view class="filter-panel-left">
+          <view bindtap="setCateIndex" data-cateindex="-1" data-cateid="0" class="{{cateindex==-1?'active':''}}">全部</view>
+          <view wx:for="{{filterdata}}" wx:key="{{item.id}}" bindtap="setCateIndex" data-cateindex="{{index}}" data-cateid="{{item.subjectId}}" class="{{cateindex==index?'active':''}}">{{item.subjectName}}</view>
+        </view>
+        <view class="filter-panel-right">
+          <view wx:for="{{childSubjectList}}" wx:key="{{item.id}}" bindtap="setSubcateIndex" data-subcateindex="{{index}}" data-subcateid="{{item.subjectId}}" class="{{subcateindex==index?'active':''}}">{{item.subjectName}}</view>
+        </view>
+      </view>
+      <view class="filter-panel" wx:if="{{showfilterindex==2}}">
+        <view class="filter-panel-left">
+          <view wx:for="{{orderShow}}" wx:key="{{item.id}}" bindtap="setAreaIndex" data-areaindex="{{index}}"  data-orderval="{{item.key}}" class="{{areaindex==index?'active':''}}">{{item.title}}</view>
+        </view>
+      </view>
+      <view class="filter-panel" wx:if="{{showfilterindex==3}}">
+        <view class="filter-panel-left">
+          <view class="screen-item">
+            <view class="screen-item-tit"><text class="c-333">课程类型</text></view>
+            <view class="screen-item-fl">
+              <view class="screen-item-fl-btn active"><text class="c-666">全部</text></view>
+                <!-- <view class="screen-item-fl-btn {{sellType=='PACKAGE'?'active':''}}" 
+              bindtap='queryFilter' data-querytype='sellType' data-val="PACKAGE" wx:if="{{serviceSwitch.PackageSwitch=='ON'}}"><text class="c-666">套餐课程</text></view>
+              <view class="screen-item-fl-btn {{isFree=='true'?'active':''}}" bindtap='queryFilter' data-querytype='isFree' data-val="true"><text class="c-666">免费课程</text></view> -->
+              <view class="screen-item-fl-btn {{sellType=='PACKAGE'?'active':''}}" 
+              bindtap='queryFilter' data-querytype='sellType' data-val="PACKAGE" wx:if="{{serviceSwitch.PackageSwitch=='ON'}}"><text class="c-666">录播课程</text></view>
+              <view class="screen-item-fl-btn {{isFree=='true'?'active':''}}" bindtap='queryFilter' data-querytype='isFree' data-val="true"><text class="c-666">课程集</text></view>
+            </view>
+          </view>
+          <view class="screen-item" wx:if="{{serviceSwitch.member=='ON'}}">
+            <view class="screen-item-tit"><text class="c-333">学员分类</text></view>
+            <view class="screen-item-fl">
+              <view class="screen-item-fl-btn {{memberareaindex==-1?'active':''}}" bindtap='setScreenIndex' data-memberareaindex='-1' data-screen='0'>
+                <text class="c-666">全部</text>
+              </view>
+              <view class="screen-item-fl-btn {{memberareaindex==index?'active':''}}" wx:for='{{memberTypeList}}' wx:key='{{item.id}}' bindtap='setScreenIndex' data-memberareaindex='{{index}}' data-screen='{{item.id}}'>
+                <text class="c-666">{{item.title}}</text>
+              </view>
+            </view>
+          </view>
+          <view class="screen-selected">
+            <view class="screen-item-fl-btn active" bindtap='resetSearch'><text class="c-666">重置</text></view>
+            <view class="screen-item-fl-btn screen-item-fl-btn-xz" bindtap='submitSearch'><text class="c-fff">确定</text></view>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <view class="filter-shadow" wx:if="{{showfilter}}" bindtap="hideFilter"></view>
+  </view>
+<!-- 列表 -->
+<block wx:if="{{couFlag==1}}">
+  <view class="course-li-ul">
+    <scroll-view scroll-y="true" bindscrolltolower="loadMore"  bindscrolltoupper="refesh" style="height: {{scrollHeight}}px">
+        <block wx:for="{{allCouList}}" wx:key="key">
+          <view class="course-item-li" data-courseid="{{item.courseId}}" catchtap="openCourse" hover-class="navigator-hover">
+            <view class="course-item">
+              <view class="cou-item-pic">
+                <image class="pic" src='{{host}}{{item.logo}}'></image>
+              </view>
+              <view class="cou-item-txt">
+                <view class="cou-item-txt-info">
+                  <view class="item-txt-title hLh20 txtOf">
+                    <text class="c-333">{{item.courseName}}</text>
+                  </view>
+                  <view class="item-txt-teach hLh20 txtOf mt5">
+                    <!-- <text class="c-666">讲师：</text>
+                    <text class="teach-name c-666">名字1</text>
+                    <text class="teach-name c-666">名字2</text> -->
+                  </view>
+                  <view class="item-txt-art mt5 hLh20">
+                    <view class="price-warp">
+                      <text class="price-text c-green" wx:if="{{item.currentPrice==0&&hasBuy=='true'}}">免费</text>
+                      <text class="price-text c-master" wx:elif="{{item.currentPrice>0&&hasBuy=='true'}}">￥{{item.currentPrice}}</text>
+                    </view>
+                    <view class="purchase-warp">
+                      <text class="c-999" wx:if="{{hasBuy=='true'}}">{{item.pageBuycount}}人报名</text>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <block wx:if="{{item.sellType=='PACKAGE'}}">
+              <view class="course-tc-jb">
+                <image src='/img/course-tc-jb.png'></image>
+              </view>
+            </block>
+          </view>
+        </block>
+    </scroll-view>    
+  </view>
+</block>  
+<block wx:else>
+  <view class="no-data-wrap"><image src="/img/no-course.png"></image></view>
+</block>
+</view>
+<!--tabbar-->
+<import src="/pages/template/tabbar.wxml"/>
+<template is="tabBar" data="{{tabBar:tabBar}}"></template>

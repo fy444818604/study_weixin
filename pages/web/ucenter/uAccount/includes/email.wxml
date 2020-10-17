@@ -1,0 +1,28 @@
+<loading hidden="{{loadingHidden}}"> 
+    拼命加载中...
+</loading>
+<view class="account-title">
+    邮箱修改
+</view>
+<scroll-view scroll-y="true" style="height: 100%;" scroll-into-view="{{toView}}" upper-threshold="5" lower-threshold="5" bindscrolltoupper="refresh" bindscrolltolower="loadMore">
+   <form bindsubmit="emailFormSubmit" bindreset="formReset" >
+    <view class="u-account-wrap">
+       <view class="account-item">
+          <view class="account__title">原邮箱</view>
+          <input name="newEmail" value="{{user.email}}" disabled />
+        </view>
+        <view class="account-item">
+          <view class="account__title">邮箱</view>
+          <input name="newEmail" bindblur="newEmailGet"  />
+        </view>
+        <view class="account-item">
+          <view class="account__title">校验码</view>
+          <input name="verifyCode" class="tel-edit" placeholder="请输入校验码"  />
+          <button class="jym-get" bindtap="getEmailYzmFun">获取校验码</button>
+        </view>     
+        <view class="btn-area">
+          <button formType="submit" class="primary-btn">修改</button>
+        </view>
+      </view>
+  </form>
+</scroll-view>

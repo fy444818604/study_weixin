@@ -1,0 +1,195 @@
+/* pages/web/payment/payment.wxss */
+page{background-color:#f8f8f8;}  
+.member-top{
+  background: #fff;
+  height: 98rpx;
+  padding: 20rpx;
+}
+.member-top-warp{
+  padding-left: 120rpx;
+  position: relative;
+}
+.member-avatar{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute;
+  top:0;
+  left: 0;
+}
+.member-avatar .avatar-pic{
+  width: 100rpx;
+  height: 100rpx;
+  display: block;
+}
+.member-nr-name{
+  font-size: 30rpx;
+  color: #333;
+  line-height: 50rpx;
+}
+.member-nr-txt{
+  font-size: 26rpx;
+  line-height: 40rpx;
+  margin-top: 5rpx;
+}
+.member-all-title{
+  line-height: 90rpx;
+  margin: 0 20rpx;
+}
+.member-all-title text{
+  font-size: 32rpx;
+}
+.member-middle{
+  background: #fff;
+  margin-top: 20rpx;
+}
+.member-middle-top{
+  height: 82rpx;
+  display:flex;
+  justify-content:space-between;
+  flex-direction:row;
+  border-bottom:1px solid #dddddd; 
+  padding: 0 20rpx;
+}
+.member-middle-bottom{
+   height: 82rpx;
+  display:flex;
+  justify-content:space-between;
+  flex-direction:row;
+  padding: 0 20rpx;
+}
+.member-middle-left{
+  line-height: 82rpx;
+  font-size: 28rpx;
+}
+.member-middle-right{
+  line-height: 82rpx;
+  font-size: 28rpx;
+}
+.pay-Coupon-warp{
+  height: 110rpx;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  border-top:1px solid #dddddd;
+}
+.pay-Coupon-warp{
+  padding: 0 20rpx;
+}
+.coupon-title{
+  line-height: 110rpx;
+  display: inline-block;
+  font-size: 34rpx;
+}
+.coupon-number{
+  display: inline-block;
+  margin-left: 20rpx;
+  width: 136rpx;
+  height: 50rpx;
+  background: #ff8053;
+  color: #fff;
+  text-align: center;
+  line-height: 50rpx;
+  font-size: 24rpx;
+}
+.pay-Coupon-right text{
+  line-height: 110rpx;
+  font-size: 26rpx;
+  margin-left: 10rpx;
+  color:#999;
+}
+.pay-middle{
+  margin-top:20rpx;
+  background: #fff;
+}
+.pay-middle-title text{
+  padding: 10rpx 20rpx;
+  font-size: 36rpx;
+  line-height: 80rpx;
+}
+.pay-middle-item{
+  padding: 35rpx;
+}
+.pay-middle-item.line-bottom{
+  border-bottom:1px solid #ddd;
+}
+.pay-wx-ico{
+  display: inline-block;
+  width: 82rpx;
+  height: 82rpx;
+  margin-right: 20rpx;
+  vertical-align: middle;
+  }
+  .pay-wx-name{
+    display: inline-block;
+    line-height: 82rpx;
+    color: #666;
+    font-size: 32rpx;
+  }
+  .pay-middle-it-nr{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    line-height: 80rpx;
+  }
+  .pay-balance{
+    font-size: 32rpx;
+    line-height: 80rpx;
+    color: #999;
+  }
+  .pay-balance-number{
+     font-size: 36rpx;
+     line-height: 80rpx;
+     color: #fc1b38;
+  }
+  .pay-middle-it-zs{
+    font-size: 24rpx;
+    color:#999;
+    line-height: 32rpx;
+  }
+  .pay-bottom{
+    position:fixed;
+    bottom:0;
+    left:0;
+    height:140rpx;
+    background:#fafafa;
+    border-top:1px solid #eaeaea;
+    width:100%;
+    z-index:99;
+  }
+  .pay-bottom-info{
+    margin:0 20rpx;
+  }
+.couIn-fot-buy{
+  padding-right:260rpx;
+  position:relative;
+}
+.couIn-fot-buy-name text{
+  line-height: 140rpx;
+}
+.couIn-fot-buy-name .left{
+  color: #333;
+  font-size: 36rpx;
+}
+.couIn-fot-buy-name .right{
+  color: #ff4300;
+  font-size: 40rpx;
+}
+.couIn-fot-buy-btn {
+  position:absolute;
+  top:0;
+  right:0;
+}
+.buy-btn {
+  width:240rpx;
+  height:70rpx;
+  line-height:70rpx;
+  text-align:center;
+  color:#fff;
+  font-size:32rpx;
+  border-radius:6px;
+  background:#ff652f;
+  margin-top:35rpx;
+}
+

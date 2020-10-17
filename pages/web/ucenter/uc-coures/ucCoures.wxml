@@ -1,0 +1,46 @@
+<!--pages/web/course/courseList.wxml-->
+<loading hidden="{{loadingHidden}}"> 
+    拼命加载中...
+</loading>
+<!-- 列表 -->
+<view class="container">
+    <block wx:if="{{courseList.length>0}}">
+      <scroll-view scroll-y="true" bindscrolltolower="loadMore"  bindscrolltoupper="refesh" style="height: {{scrollHeight}}px">
+        <block wx:for="{{courseList}}" wx:key="key">
+          <view class="course-item-li" data-courseid="{{item.courseId}}" catchtap="openCourse" hover-class="navigator-hover">
+            <view class="course-item">
+              <view class="cou-item-pic">
+                <image class="pic" src='{{host}}{{item.logo}}'></image>
+              </view>
+              <view class="cou-item-txt">
+                <view class="cou-item-txt-info">
+                  <view class="item-txt-title hLh20 txtOf">
+                    <text class="c-333">{{item.courseName}}</text>
+                  </view>
+                  <view class="item-txt-art mt5 hLh20">
+                    <view class="ucCoures-lately">
+                      <!-- <text class="wui-iconfont wui-icon-shijian"></text> -->
+                      <text class="lately-text"></text>
+                    </view>
+                  </view>
+                  <view class="item-txt-teach hLh20 txtOf mt5">
+                    <text class="c-999">课时：</text>
+                    <text class="teach-name c-999">{{item.lessionNum}}课时</text>
+                  </view>
+                  
+                </view>
+              </view>
+            </view>
+            <block wx:if="{{item.sellType=='PACKAGE'}}">
+              <view class="course-tc-jb">
+                <image src='/img/course-tc-jb.png'></image>
+              </view>
+            </block>
+          </view>
+        </block>
+      </scroll-view>
+    </block>
+    <block wx:else>
+      <view class="no-data-wrap"><image src="/img/no-course.png"></image></view>
+    </block>
+</view>

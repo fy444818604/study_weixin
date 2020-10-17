@@ -1,0 +1,118 @@
+<view class="login-wrap">
+  <view class="login-top-box">
+    <view class="login-top-bg">
+      <image src="/img/login-top-bg.jpg" />
+    </view>
+    <view class="login-tit-pic">
+      <image src='{{host}}{{avatar}}' mode='widthFix' />
+    </view>
+    <view class="login-name tac hLh30 c-fff">
+      <text>{{name}}</text>
+    </view>
+  </view>
+  <view class="login_body" > 
+    <form class="" bindsubmit="formSubmit" bindreset="formReset">
+      <block wx:if="{{bundingFlag===1}}">
+        <view wx:if="{{registerController.nameRegister==='ON'}}">
+          <view class="login-wrp " >
+            <view class="login-item">
+              <view class="login-item-icon">
+                <text class="wui-iconfont wui-icon-yonghu1"></text>
+              </view>
+                <view class="login-item-input">
+                  <input name="userName" placeholder="用户名"  maxlength="50" />
+                </view>
+              </view>
+            </view>
+          </view>
+          <view wx:if="{{registerController.emailRegister==='ON'}}">
+            <view class="login-wrp " >
+              <view class="login-item">
+                <view class="login-item-icon">
+                  <text class="wui-iconfont wui-icon-yonghu1"></text>
+                </view>
+                <view class="login-item-input">
+                  <input name="email" placeholder="邮箱"  />
+                </view>
+              </view>
+            </view>
+          </view>
+          <view wx:if="{{registerController.phoneRegister==='ON'}}">
+            <view class="login-wrp " >
+              <view class="login-item">
+                <view class="login-item-icon">
+                  <text class="wui-iconfont wui-icon-yonghu1"></text>
+                </view>
+                <view class="login-item-input">
+                  <input name="mobile" bindinput ="mobileInput" placeholder="手机" maxlength="11" />
+                </view>
+              </view>
+            </view>
+          </view>
+          <view wx:if="{{registerController.phoneProving==='ON'}}">
+          <view class="login-wrp" >
+            <view class="login-item-two">
+              <view class="login-item">
+                <view class="login-item-input login-item-input-small">
+                  <input name="mobileCode" type="number"  placeholder="请输入验证码" />
+                </view>
+              </view> 
+              <view class="login-item-input login-item-input-small">
+                <button bindtap="getYzmFun" wx:if="{{isShow}}">获取验证码</button>
+                <button wx:if="{{!isShow}}">{{sec}}秒后重新发送</button>
+              </view> 
+            </view>
+          </view>
+        </view>
+        <view class="login-wrp" >
+          <view class="login-item">
+            <view class="login-item-icon">
+              <text class="wui-iconfont wui-icon-lock"></text>
+            </view>
+            <view class="login-item-input">
+              <input name="password" type="number"  placeholder="请输入密码"  password="true"/>
+            </view>
+          </view>
+        </view>
+        <view class="login-wrp">
+          <button formType="submit" class="login-button" >绑定新账号</button>
+        </view>
+        <view class="login-wrp">
+          <view class="login-log-txt hLh20 tac">
+            <text class="c-master" bindtap="bundingOld">绑定已有账号</text>
+          </view>
+        </view>
+      </block>
+      <block wx:if="{{bundingFlag===2}}">
+        <view class="login-wrp" >
+          <view class="login-item">
+            <view class="login-item-icon">
+              <text class="wui-iconfont wui-icon-yonghu1"></text>
+            </view>
+            <view class="login-item-input">
+              <input name="userName" maxlength="18" type="text" placeholder="用户名/邮箱/手机号"  />
+            </view>
+          </view>
+        </view>
+        <view class="login-wrp" >
+          <view class="login-item">
+            <view class="login-item-icon">
+              <text class="wui-iconfont wui-icon-lock"></text>
+            </view>
+            <view class="login-item-input">
+              <input name="password"  type="text"  placeholder="密码"  password="true"/>
+            </view>
+          </view>
+        </view>
+        <view class="login-wrp">
+          <button formType="submit" class="login-button" >绑定已有账号</button>
+        </view>
+        <view class="login-wrp">
+          <view class="login-log-txt hLh20 tac">
+            <text class="c-master" bindtap="bundingNew">绑定新账号</text>
+          </view>
+        </view>
+      </block>
+    </form>
+  </view>
+</view>

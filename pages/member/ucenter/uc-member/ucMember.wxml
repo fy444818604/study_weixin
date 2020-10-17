@@ -1,0 +1,107 @@
+<!--pages/member/ucenter/uc-member/ucMember.wxml-->
+<view class="member-top">
+  <view class="member-top-warp">
+    <view class="member-avatar">
+      <image src='{{user.picImg!==undefined?host+user.picImg:"/img/avatar-boy.gif"}}' class="avatar-pic"></image>
+    </view>
+    <view class="member-nr">
+      <view class="member-nr-name">{{user.displayName}}</view>
+      <view class="member-nr-txt">
+        <text class="c-999">{{memberShowInfo}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="member-all-title">
+  <text class="c-333">已开通的会员</text>
+</view>
+ <block wx:if="{{openedMemberList.length>0}}">
+  <block wx:for="{{openedMemberList}}" wx:key="key">
+    <view class="member-all-item">
+      <view class="member-all-item-warp">
+        <view class="member-vip-pic">
+          <image src='{{host}}{{item.imageUrlExpand}}' class="vip-ico"></image>
+        </view>
+        <view class="member-vip-name">
+          <view class="name txtOf c-333">{{item.title}}</view>
+          <view class="power txtOf c-999">权限：{{item.remarks}}</view>
+          <view class="date txtOf c-master">截止{{item.endTime}}到期</view>
+        </view>
+        <view class="member-vip-label c-fff">
+          使用中
+        </view>
+      </view>
+    </view>
+  </block>
+</block>
+<block wx:else>
+  <view class="no-data-wrap">
+        <view class="member-nr-txt">
+        <text class="c-999">您还没有开通会员！</text>
+      </view>
+  </view>
+</block> 
+<view class="member-all-title">
+  <text class="c-333">未开通的会员</text>
+</view>
+<block wx:if="{{noOpenedMemberList.length>0}}">
+  <block wx:for="{{noOpenedMemberList}}" wx:key="key">
+    <view class="member-all-item">
+      <view class="member-all-item-warp">
+        <view class="member-vip-pic">
+          <image src='{{host}}{{item.imageUrlExpand}}' class="vip-ico"></image>
+        </view>
+        <view class="member-vip-name">
+          <view class="name txtOf c-333">{{item.title}}</view>
+          <view class="power txtOf c-999">权限：{{item.remarks}}</view>
+          <view class="price">
+            <block wx:if="{{item.memberSaleArr.length>0}}">
+              <picker bindchange="bindPickerChange" data-saleid="{{item.selectSaleId}}" data-memberid="{{item.id}}" value="{{item.selectIndex}}" range="{{item.memberSaleArr}}" range-key="{{'showTitle'}}">  
+                  <view class="picker-nr">  
+                    价格：
+                    <view class="c-master picker-nr-picker">
+                      {{item.memberSaleArr[item.selectIndex].showTitle}}
+                      <text class="wui-iconfont wui-icon-triangle-bottom"></text>
+                    </view>  
+                  </view>  
+              </picker>  
+            </block>
+          </view>
+        </view>
+        <block wx:if="{{item.memberSaleArr.length>0}}">
+          <view class="member-vip-btn btn-info-master-k" bindtap='buyMember' data-memberid="{{item.id}}">
+            立即开通
+          </view>
+        </block>  
+      </view>
+    </view>
+    <!-- <view class="member-all-item">
+      <view class="member-all-item-warp">
+        <view class="member-vip-pic">
+          <image src='/img/vip-3.png' class="vip-ico"></image>
+        </view>
+        <view class="member-vip-name">
+          <view class="name txtOf c-333">蓝钻会员</view>
+          <view class="power txtOf c-999">权限：会员课程免费观看</view>
+          <view class="price">
+            <picker bindchange="bindPickerChange" value="{{item.selectSaleId}}" range="{{item.memberSaleArr}}">  
+                <view class="picker-nr">  
+                  价格：
+                  <view class="c-master picker-nr-picker">
+                    {{item.memberSaleArr[item.selectSaleId]}}
+                    <text class="wui-iconfont wui-icon-triangle-bottom"></text>
+                  </view>  
+                </view>  
+            </picker>  
+          </view>
+        </view>
+        <view class="member-vip-btn btn-info-master-k">
+          立即开通
+        </view>
+      </view>
+    </view> -->
+  </block>
+</block>
+<block wx:else>
+  <view class="no-data-wrap"><image src="/img/no-context.png"></image></view>
+</block>

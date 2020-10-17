@@ -1,0 +1,13 @@
+.u-cou-item {position:relative;padding: 15rpx;border-bottom: 1px solid #eee;}
+.item-title{}
+.cou-item-pic {width: 32rpx;height: 32rpx;float: left;margin-right: 3rpx;padding-top: 6rpx;}
+.cou-item-pic image {width: 32rpx; height: 32rpx;}
+.mess-item-title {font-size: 32rpx; color: #333;text-overflow: ellipsis; overflow: hidden;white-space: nowrap;line-height: 50rpx;}
+.cou-item-num {font-size: 24rpx; color: #666; margin-top: 6px;line-height: 2;word-break: break-all;}
+.cou-item-check {position: absolute; right: 10px; top: 50%;margin-top: -17px;line-height: 2;font-size: 14px; border-radius: 0; background: #e94c2a;color: #fff;}
+.cou-item-check .u-c-btn {padding: 0 10px;font: 14px/24px "Microsoft YaHei";height: 24px;background: #ea562e; color: #fff;}
+.mess-item-time {color: #999;font-size: 24rpx; text-align: right;margin-top: 5rpx;}
+.mess-del-btn {text-align: right; font-size: 24rpx; color: #999;margin-top: 5rpx;}
+.mess-top {display: flex; display: -webkit-flex;flex-direction: row; justify-content:space-between;}
+.no-data-wrap image{display: block;margin: 140rpx auto 0;width: 368rpx;height: 320rpx;}
+

@@ -1,0 +1,82 @@
+
+.course-li-ul{
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+  word-break: break-all;
+  position: relative;
+}
+.course-item-li{
+  display: block;
+  border-bottom: 1px solid #E9E9E9;
+  padding: 20rpx 0;
+}
+.course-item{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start
+}
+.cou-item-pic{
+  width: 253rpx;
+  height: 141rpx;
+  margin: 0 20rpx;
+}
+.cou-item-pic .pic{
+  width: 253rpx;
+  height: 141rpx;
+  display: block;  
+}
+.cou-item-txt{
+  position: relative;
+    min-height: 2.2rem;
+    padding-right: 0.75rem;
+    width: 100%;
+    overflow: hidden;
+}
+.item-txt-title text{
+  font-size: 32rpx;
+}
+.item-txt-teach text{
+  font-size: 26rpx;
+}
+.teach-name{
+  margin-right: 15rpx;
+}
+.item-txt-art{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.navigator-hover{
+  background-color: rgba(250,250,250,1); 
+  opacity: 0.9;
+}
+.navigator-hover .item-txt-title text{
+  color: #ff8053;
+}
+.no-data-wrap image{
+  display: block;
+  margin: 140rpx auto 0;
+  width: 238rpx;
+  height: 284rpx;
+}
+.ucCoures-lately .wui-icon-shijian{
+  font-size: 34rpx;
+  color: #999;
+}
+.ucCoures-lately .lately-text{
+  font-size: 26rpx;
+  color: #999;
+  margin-left: 5rpx;
+}
+.course-tc-jb{
+  position: absolute;
+  width: 74rpx;
+  height: 74rpx;
+  top :0;
+  right: 0;
+}
+.course-tc-jb image{
+  display: block;
+  width: 74rpx;
+  height: 74rpx;
+}

@@ -1,0 +1,30 @@
+<loading hidden="{{loadingHidden}}"> 
+    拼命加载中...
+</loading>
+<block wx:if="{{couFlag==1}}">
+  <scroll-view scroll-y="true" style="height: {{scrollHeight}}px;" scroll-into-view="{{toView}}" upper-threshold="5" lower-threshold="5" bindscrolltoupper="refresh" bindscrolltolower="loadMore">
+    <block wx:for="{{messList}}" wx:key="key">
+        <view class="u-cou-item">
+            <view class="item-title clearfix">
+              <view class="cou-item-pic">
+                <image src="/img/news.png" />
+              </view>
+              <view class="mess-top">
+                <view wx:if="{{item.type===1}}" class="mess-item-title">系统消息</view>
+                <view wx:elif="{{item.type===2}}" class="mess-item-title">站内信</view>
+                <view wx:elif="{{item.type===3}}" class="mess-item-title">评论回复</view>
+                <view wx:elif="{{item.type===4}}" class="mess-item-title">问答回复</view>
+                <view class="mess-item-time">{{item.addTime}}</view>
+              </view>
+            </view>
+             <view>
+                <rich-text class="cou-item-num" nodes="{{item.content}}"></rich-text>
+             </view>
+            <view class="mess-del-btn " data-id="{{item.id}}" bindtap="delMess">删除</view>
+        </view>
+    </block>
+  </scroll-view>
+</block>
+<block wx:else>
+  <view class="no-data-wrap"><image src="/img/no-uc-news.png"></image></view>
+</block>

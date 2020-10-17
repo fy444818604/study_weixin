@@ -1,0 +1,58 @@
+<view class="courseInfor-con-in">
+  <view class="courseInfor-con-in-head">
+    <view class="courIn-con-in-head-list" bindtap="switchContent">
+      <view class="courIn-li-warp">
+        <text mode="aspectFill" data-type="intro">介绍</text>
+      </view>
+      <view class="courIn-li-warp">
+        <text mode="aspectFill" data-type="catlog">目录</text>
+      </view>
+      <view class="courIn-li-warp">
+        <text class="selected" mode="aspectFill" data-type="review">评论</text>
+      </view>
+    </view>
+  </view>
+  <view class="courseInfor-con-in-body">
+    <block wx:if="{{couFlag==1}}">
+      <view class="review-warp">
+        <block wx:for="{{assessList}}">
+          <view class="review-warp-item">
+              <view class="review-it-top">
+                <view class="review-it-pic">
+                  <image src='{{host}}{{item.picImg}}'></image>
+                </view>
+                <view class="review-it-txt">
+                  <rich-text nodes="{{item.content}}"></rich-text>
+                </view>
+              </view>
+              <view class="review-it-bottom">
+                <text class="c-333 name txtOf">{{item.userName}}</text>
+                {{item.addTime}}
+              </view>
+          </view>
+        </block>   
+      </view>
+    </block>  
+    <block wx:else>
+      <view class="review-warp">
+         <view class="no-data-wrap"><image class="no-course-pj" src="/img/no-course-pj.png"></image></view>
+      </view>
+    </block>
+  </view>
+</view>
+<view class="courseInfor-foot courseInfor-foot-review">
+  <view class="couIn-fot-info">
+    <form class="" bindsubmit="addAssess" bindreset="formReset">
+        <view class="couIn-fot-review">
+          <view class="ask-inp">
+            <textarea name="content" fixed="true" placeholder="" value="{{askInfo}}" bindtap='backFun1'></textarea>
+          </view>
+          <view class="couIn-fot-buy-btn">
+            <view class="review-btn" >
+              <button formType="submit">发 送</button>
+            </view>
+          </view>
+        </view>
+    </form>    
+  </view>
+</view>

@@ -1,0 +1,30 @@
+ <form class="" bindsubmit="formSubmit" bindreset="formReset">
+  <view class="rech-top">
+      <view class="rech-top-ico">
+        <image src='/img/aecharg-ico.png'></image>
+      </view>
+      <view class="rech-top-name">
+        充值金额(￥)
+      </view>
+      <view class="rech-top-lable">
+        <input name='rechargeMoney' type='number' value='5'/>
+      </view>
+  </view>
+  <view class="pay-middle">
+      <view class="pay-middle-title">
+        <text>支付方式</text>
+      </view>
+      <view class="pay-middle-item line-bottom">
+          <image src='/img/wx-buy-ico.png' class="pay-wx-ico"></image>
+          <text class="pay-wx-name">微信支付</text>
+      </view>
+  </view>
+  <view class="pay-bottom">
+    <button formType="submit">
+      <view class="buy-btn">
+        <text>确认充值</text>
+      </view>
+    </button>
+  </view>
+ 
+</form>

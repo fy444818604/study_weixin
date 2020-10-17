@@ -1,0 +1,55 @@
+<!--pages/web/courseInfor/courseInfor.wxml-->
+<block wx:if="{{videoPlay}}" >
+  <view class="courseInfor-top">
+    <view class="courseInfor-t-pic">
+      <image class="pic" src='{{host}}{{course.logo}}'></image>
+    </view>
+    <block wx:if="{{course.sellType == 'COURSE'}}">
+      <view class="courseInfor-t-mask"></view>
+      <view class="courseInfor-t-btn" bindtap="openKpoint" data-kpointid="{{couKpoint[0].kpointList[0].kpointId}}" data-type="{{couKpoint[0].kpointList[0].fileType}}" data-url="{{couKpoint[0].kpointList[0].videoUrl}}" data-content="{{couKpoint[0].kpointList[0].content}}">
+        <image src='/img/play_btn.png' class="play-img"></image>
+      </view>
+    </block>
+  </view>
+</block>
+<block wx:if="{{!videoPlay&&couType=='VIDEO'}}">
+   <view class="movie-video">
+      <video class="video" id="myVideo" initial-time="0" autoplay="true" src="{{videoSrc}}" controls></video>
+  </view>
+</block> 
+<block wx:elif="{{!videoPlay&&couType=='AUDIO'}}">
+  <view class="">
+    <view class="music-cover">
+      <audio bindtimeupdate="funtimeupdate" src="{{mp3Url}}" id="myAudio" class="myAudio"></audio>
+      <view class="courseInfor-t-pic">
+        <image class="pic" src='{{host}}{{course.logo}}'></image>
+      </view>
+      <view class="video-mask-new"></view>
+      <view class="video-btn-warp">
+        <view wx:if="{{!mplay}}">
+          <image class="music-state-image" src="/img/audio.gif" mode="aspectFill"></image>
+        </view>
+        <view wx:elif="{{mplay}}">
+          <image class="music-state-image" src="/img/audio-pause.png" mode="aspectFill"></image>
+        </view>
+        <view class="clearfix music-play-btn">
+            <view wx:if="{{mplay}}" class="music-play" bindtap="audioPlay">
+              <image class="music-play-control" src="/img/audio_play.png"></image>
+            </view>
+            <view wx:elif="{{!mplay}}" class="music-play" bindtap="audioPause">
+              <image class="music-play-control" src="/img/audio_pause.png"></image>
+            </view>
+            <view class="free-MusicProgress">
+              <view class="free-jd" style="width:{{progress}}%;"></view>
+            </view>
+            <view class="free-Musictime">{{duration}}</view>
+        </view>
+      </view>
+    </view>  
+  </view>
+</block> 
+<view class="courseInfor-conter">
+  <include wx:if="{{contentType === 'intro'}}" src="includes/intro.wxml"/>
+  <include wx:if="{{contentType === 'catlog'}}" src="includes/catlog.wxml"/>
+  <include wx:if="{{contentType === 'review'}}" src="includes/review.wxml"/>
+</view>

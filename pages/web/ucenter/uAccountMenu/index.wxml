@@ -1,0 +1,36 @@
+ <view class="menu-box">
+        <view class="menu-item-my-info" hover-class="navigator-hover"> 
+           <navigator url="/pages/web/ucenter/uAccount/index?type=basic" hover-class="none">
+              <view class="nemu-name" >个人信息</view> 
+              <view class="menu-arrow"><text class="wui-iconfont wui-icon-youjiantou1"></text></view>
+           </navigator>
+        </view>
+        <view class="menu-item-my-info" hover-class="navigator-hover"> 
+            <navigator url="/pages/web/ucenter/uAccount/index?type=avator" hover-class="none">
+              <view class="nemu-name" >修改头像</view> 
+              <view class="menu-arrow"><text class="wui-iconfont wui-icon-youjiantou1"></text></view>
+            </navigator>
+        </view>
+        <view class="menu-item-my-info" hover-class="navigator-hover"> 
+            <navigator url="/pages/web/ucenter/uAccount/index?type=password" hover-class="none">
+              <view class="nemu-name" >密码设置</view> 
+              <view class="menu-arrow"><text class="wui-iconfont wui-icon-youjiantou1"></text></view>
+            </navigator>
+        </view>
+        <!-- <block wx:if="{{user.mobile!=null}}">
+          <view class="menu-item" hover-class="navigator-hover"> 
+              <navigator url="/pages/web/ucenter/uAccount/index?type=mobile" hover-class="none">
+                <view class="nemu-name" >修改手机号</view> 
+                <view class="menu-arrow"><text class="wui-iconfont wui-icon-youjiantou1"></text></view>
+              </navigator>
+          </view>
+        </block>
+        <block wx:if="{{user.email!=null}}">  
+          <view class="menu-item" hover-class="navigator-hover"> 
+              <navigator url="/pages/web/ucenter/uAccount/index?type=email" hover-class="none">
+                <view class="nemu-name" >修改邮箱</view> 
+                <view class="menu-arrow"><text class="wui-iconfont wui-icon-youjiantou1"></text></view>
+              </navigator>
+          </view>
+        </block>   -->
+    </view>

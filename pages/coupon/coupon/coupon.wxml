@@ -1,0 +1,37 @@
+<view class="content">
+  <view class="coupon-content">
+    <view class="coupon-body">
+      <block wx:for="{{couponList}}" wx:key="item">
+        <view class="coupon-item">
+          <view class="coupon-item-left">
+            <view class="coupon-item-l-top clearfix">
+              <view class="coupon-it-jg">
+                {{item.amount}}
+              </view>
+              <view class="coupon-it-jg-nr">
+                <view class="jg-nr-top">元优惠券</view>
+                <view class="jg-nr-bottom">
+                  <text>满</text>
+                  <text class="red">{{item.limitAmount}}</text>
+                  <text>元即可使用</text>
+                </view>
+              </view>
+            </view>
+            <view class="coupon-item-l-bottom">
+              <text decode="{{true}}">编&nbsp;&nbsp;&nbsp;号：{{item.couponCode}}</text>
+              <text>有效期：{{item.startTime}}-{{item.endTime}}</text>
+            </view>
+          </view>
+          <view class="coupon-item-right">
+            <view class="coupon-item-line">
+              <image src='/img/coupon-line-bg.jpg' class="line-bg"></image>
+            </view>
+            <view class="coupon-item-r-txt" bindtap="userCoupon" data-couponcode='{{item.couponCode}}' data-couponid='{{item.id}}'>
+              <text>立即使用</text>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

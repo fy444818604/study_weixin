@@ -1,0 +1,34 @@
+<loading hidden="{{loadingHidden}}"> 
+    拼命加载中...
+</loading>
+<view class="account-title">
+    手机号修改
+</view>
+<scroll-view scroll-y="true" style="height: 100%;" scroll-into-view="{{toView}}" upper-threshold="5" lower-threshold="5" bindscrolltoupper="refresh" bindscrolltolower="loadMore">
+   <form bindsubmit="mobileFormSubmit" bindreset="formReset" >
+    <view class="u-account-wrap">
+        <view class="account-item">
+          <view class="account__title">原手机号</view>
+          <input name="tel" value="{{user.mobile}}" disabled />
+        </view>
+        <view class="account-item">
+          <view class="account__title">新手机号</view>
+          <input name="tel" bindblur="newTelGet" />
+        </view>
+         <!-- <view class="account-item">
+          <view class="account__title">手机验证码</view>
+          <input name="mobileCode" bindblur="newTelGet"  placeholder="请输入手机验证码"/>
+          <button bindtap="getYzmFun" wx:if="{{isShow}}">获取验证码</button>
+          <button wx:if="{{!isShow}}">{{sec}}秒后重新发送</button>
+        </view>  -->
+        <view class="account-item">
+          <view class="account__title">校验码</view>
+          <input name="verifyCode" class="tel-edit" placeholder="请输入校验码"  />
+          <button class="jym-get" bindtap="getYzmFun">获取校验码</button>
+        </view>    
+        <view class="btn-area">
+          <button formType="submit" class="primary-btn">修改</button>
+        </view>
+      </view>
+  </form>
+</scroll-view>

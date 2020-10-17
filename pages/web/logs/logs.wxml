@@ -1,0 +1,183 @@
+ <block wx:if="{{loginFlag===1}}"> 
+   <view class="login-wrap">
+      <view class="login-top-box">
+          <view class="login-top-bg">
+            <image src="/img/login-top-bg.jpg" />
+          </view>
+          <view class="login-tit-pic">
+            <image src='/img/login_head.png' mode='widthFix' />
+          </view>
+          <view class="login-name tac hLh30 c-fff">
+            <text></text>
+          </view>
+      </view>
+      <view class="login_body" > 
+          <form class="" bindsubmit="formSubmit" bindreset="formReset">
+              <view class="login-wrp" >
+                  <view class="login-item">
+                      <view class="login-item-icon">
+                        <text class="wui-iconfont wui-icon-yonghu1"></text>
+                      </view>
+                      <view class="login-item-input">
+                        <input name="userName" maxlength="18" type="text" placeholder="用户名/邮箱/手机号"  />
+                      </view>
+                  </view>
+              </view>
+              <view class="login-wrp" >
+                  <view class="login-item">
+                      <view class="login-item-icon">
+                        <text class="wui-iconfont wui-icon-lock"></text>
+                      </view>
+                      <view class="login-item-input">
+                        <input name="password"  type="text"  placeholder="密码"  password="true"/>
+                      </view>
+                  </view>
+              </view>
+              <view class="login-wrp">
+                <view class="login-log-txt hLh20 tar mr10" bindtap="forgetpwd">
+                  <text class="c-999">忘记密码</text>
+                </view>
+              </view>
+              <view class="login-wrp" >
+                  <button formType="submit" class="login-button" >登 录</button>
+              </view>
+              <view class="login-wrp">
+                <view class="login-log-txt hLh20 tac">
+                  <text class="c-master" bindtap="register">新用户注册</text>
+                </view>
+              </view>
+              <view class="login-wrp" wx:if="{{serviceSwitch.verifyWeiXin==='ON'}}">
+                <button class="login-wx" bindtap="weChatProgramLogin" open-type="getUserInfo">
+                  <image src="{{host}}/static/inxweb/img/wx-icon-32.png"></image>
+                </button>
+              </view>
+          </form>
+      </view>
+  </view>
+ </block>
+<block wx:if="{{loginFlag===2}}">
+  <view class="ucenter-in-warp">
+    <view class="login-top-box">
+          <view class="login-top-bg">
+            <image src="/img/login-top-bg.jpg" />
+          </view>
+          <view class="login-tit-pic">
+            <image src='{{userInfo.picImg!==undefined?host+userInfo.picImg:"/img/login_head.png"}}' mode='widthFix' />
+          </view>
+          <view class="login-name tac hLh30 c-fff">
+            <text>{{userInfo.displayName}}</text>
+          </view>
+      </view>
+      <view class="ucenter-in-menu">
+      
+        <view class="uc-in-menu-list">
+          <!-- <view hover-class='none' bindtap="aaa">
+            <view class="uc-in-menu-item" hover-class="navigator-hover">
+              <view class="menu-pic"><text class="wui-iconfont wui-icon-kecheng_n"></text></view>
+              <view class="nemu-name" >测试跳转</view> 
+              <view class="menu-arrow"><text class="wui-iconfont wui-icon-youjiantou1"></text></view>
+            </view>
+          </view> -->
+          <navigator url="/pages/web/ucenter/uc-coures/ucCoures"  hover-class='none'>
+            <view class="uc-in-menu-item" hover-class="navigator-hover">
+              <view class="menu-pic"><text class="wui-iconfont wui-icon-kecheng_n"></text></view>
+              <view class="nemu-name" >我的课程</view> 
+              <view class="menu-arrow"><text class="wui-iconfont wui-icon-youjiantou1"></text></view>
+            </view>
+          </navigator>
+          <navigator url="/pages/web/exam/exam"  hover-class='none'>
+            <view class="uc-in-menu-item" hover-class="navigator-hover">
+              <view class="menu-pic"><text class="wui-iconfont wui-icon-kecheng_n"></text></view>
+              <view class="nemu-name" >我的考试</view> 
+              <view class="menu-arrow"><text class="wui-iconfont wui-icon-youjiantou1"></text></view>
+            </view>
+          </navigator>
+          <navigator url="/pages/web/ucenter/uc-coures/ucCoures"  hover-class='none'>
+            <view class="uc-in-menu-item" hover-class="navigator-hover">
+              <view class="menu-pic"><text class="wui-iconfont wui-icon-kecheng_n"></text></view>
+              <view class="nemu-name" >我的学分</view> 
+              <view class="menu-arrow"><text class="wui-iconfont wui-icon-youjiantou1"></text></view>
+            </view>
+          </navigator>
+          <navigator url="/pages/web/ucenter/uc-coures/ucCoures"  hover-class='none'>
+            <view class="uc-in-menu-item" hover-class="navigator-hover">
+              <view class="menu-pic"><text class="wui-iconfont wui-icon-kecheng_n"></text></view>
+              <view class="nemu-name" >试卷管理</view> 
+              <view class="menu-arrow"><text class="wui-iconfont wui-icon-youjiantou1"></text></view>
+            </view>
+          </navigator>
+          <navigator url="/pages/live/ucenter/uc-live/ucLive"  hover-class='none' wx:if="{{serviceSwitch.live==='ON'}}">
+            <view class="uc-in-menu-item" hover-class="navigator-hover">
+              <view class="menu-pic"><text class="wui-iconfont wui-icon-zhibo1"></text></view>
+              <view class="nemu-name" >我的直播</view> 
+              <view class="menu-arrow"><text class="wui-iconfont wui-icon-youjiantou1"></text></view>
+            </view>
+          </navigator>
+        </view>
+        <view class="menu-item-line"></view>
+        <block wx:if="{{hasBuy==='true'}}">
+          <view class="uc-in-menu-list">
+            <navigator url="/pages/web/ucenter/uc-oder/ucOder" hover-class='none'>
+              <view class="uc-in-menu-item"  hover-class="navigator-hover">
+                <view class="menu-pic"><text class="wui-iconfont wui-icon-dingdan"></text></view>
+                <view class="nemu-name" >我的订单</view> 
+                <view class="menu-arrow"><text class="wui-iconfont wui-icon-youjiantou1"></text></view>
+              </view>
+            </navigator>
+            <navigator url="/pages/member/ucenter/uc-member/ucMember" hover-class='none' wx:if="{{serviceSwitch.member==='ON'}}">
+              <view class="uc-in-menu-item"  hover-class="navigator-hover">
+                <view class="menu-pic"><text class="wui-iconfont wui-icon-huiyuan"></text></view>
+                <view class="nemu-name" >我的会员</view> 
+                <view class="menu-arrow"><text class="wui-iconfont wui-icon-youjiantou1"></text></view>
+              </view>
+            </navigator>
+            <navigator url="/pages/coupon/ucenter/uc-coupon/ucCoupon" hover-class='none' wx:if="{{serviceSwitch.coupon==='ON'}}">
+              <view class="uc-in-menu-item"  hover-class="navigator-hover">
+                <view class="menu-pic"><text class="wui-iconfont wui-icon-weibiaoti2fuzhi02"></text></view>
+                <view class="nemu-name" >我的优惠券</view> 
+                <view class="menu-arrow"><text class="wui-iconfont wui-icon-youjiantou1"></text></view>
+              </view>
+            </navigator>
+            <navigator url="/pages/card/ucenter/uc-Coursecard/ucCourescard" hover-class='none' wx:if="{{serviceSwitch.cardServer==='ON'}}">
+              <view class="uc-in-menu-item"  hover-class="navigator-hover">
+                <view class="menu-pic"><text class="wui-iconfont wui-icon-qia01"></text></view>
+                <view class="nemu-name" >我的课程卡</view> 
+                <view class="menu-arrow"><text class="wui-iconfont wui-icon-youjiantou1"></text></view>
+              </view>
+            </navigator>
+          </view>
+          <view class="menu-item-line"></view>
+          <view class="uc-in-menu-list">
+            <navigator url="/pages/account/ucenter/uc-account/ucAccount" hover-class='none' wx:if="{{serviceSwitch.account==='ON'}}">
+              <view class="uc-in-menu-item" hover-class="navigator-hover">
+                <view class="menu-pic"><text class="wui-iconfont wui-icon-gerenyonghutouxiang"></text></view>
+                <view class="nemu-name" >个人账户</view> 
+                <view class="menu-arrow"><text class="wui-iconfont wui-icon-youjiantou1"></text></view>
+              </view>
+            </navigator>
+          </view>
+        </block>
+        <view>
+          <navigator url="/pages/web/ucenter/uAccountMenu/index" hover-class='none'>
+            <view class="uc-in-menu-item"  hover-class="navigator-hover">
+              <view class="menu-pic"><text class="wui-iconfont wui-icon-shezhi"></text></view>
+              <view class="nemu-name" >个人设置</view> 
+              <view class="menu-arrow"><text class="wui-iconfont wui-icon-youjiantou1"></text></view>
+            </view>
+          </navigator>
+          <navigator url="/pages/web/ucenter/uMessage/index" hover-class='none'>
+            <view class="uc-in-menu-item"  hover-class="navigator-hover">
+              <view class="menu-pic"><text class="wui-iconfont wui-icon-xiaoxi"></text></view>
+              <view class="nemu-name" >系统消息</view> 
+              <view class="menu-arrow"><text class="wui-iconfont wui-icon-youjiantou1"></text></view>
+            </view>
+          </navigator>
+        </view>
+        <view class="menu-item-line"></view>
+      </view>
+      <view class="login-button login-button-out" bindtap="logout">退出登录</view>
+  </view>
+</block>
+<!--tabbar-->
+<import src="/pages/template/tabbar.wxml"/>
+<template is="tabBar" data="{{tabBar:tabBar}}"></template>

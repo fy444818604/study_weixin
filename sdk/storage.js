@@ -1,0 +1,1 @@
+var util=require("util");exports.set=function(e,t){wx.setStorageSync(e,t)},exports.get=function(e){return wx.getStorageSync(e)},exports.remove=function(e){wx.removeStorageSync(e)};
