@@ -1,0 +1,166 @@
+<!--pages/myexam/result/result.wxml-->
+<view class="exam-result">
+	<view class="tab">
+		<view class="tab-item" wx:for="{{tabArr}}" wx:key="item.index" bindtap="handleChangeTab" data-index="{{item.index}}">
+			<view class="{{tabIndex==item.index?'tab-item-text current':'tab-item-text'}}">{{item.text}}</view>
+			<view class="{{tabIndex==item.index?'tab-item-line current':'tab-item-line'}}"></view>
+		</view>
+	</view>
+
+	<view class="exam-content">
+		<block wx:if="{{tabIndex==1}}">
+			<view class="exam-box">
+				<view class="head">
+					<view class="head-item">
+						<view class="icon">
+							<image src="/img/icon-time.png"></image>
+						</view>
+						<text class="title">交卷时间</text>
+						<text class="time">{{endTime}}</text>
+					</view>
+					<view class="head-item">
+						<view class="icon">
+							<image src="/img/icon-time-long.png"></image>
+						</view>
+						<text class="title">考试时长</text>
+						<text class="time">45分32秒</text>
+					</view>
+				</view>
+
+				<view class="content">
+					<view class="content-i">
+						<text class="num">{{userScore}}</text>
+						<text class="text">最终得分</text>
+					</view>
+					<view class="content-i">
+						<text class="num">{{svgRate}}</text>
+						<text class="text">及格分数</text>
+					</view>
+					<view class="content-i current">
+						<text class="num">3</text>
+						<text class="text">得分排名</text>
+					</view>
+					<view class="content-i">
+						<text class="num">{{objectiveScore}}</text>
+						<text class="text">客观题得分</text>
+					</view>
+					<view class="content-i">
+						<text class="num">{{accuracy}}</text>
+						<text class="text">客观题正确率</text>
+					</view>
+					<view class="content-i current">
+						<text class="num">94</text>
+						<text class="text">主观题得分</text>
+					</view>
+				</view>
+
+			</view>
+		</block>
+		<block wx:if="{{tabIndex==2}}">
+			<view class="answer-box">
+				<view class="label">
+					<view class="label-item">
+						<view class="label-icon one"></view>
+						<text class="label-text">答对</text>
+					</view>
+					<view class="label-item">
+						<view class="label-icon two"></view>
+						<text class="label-text">答错</text>
+					</view>
+					<view class="label-item">
+						<view class="label-icon three"></view>
+						<text class="label-text">主观题已判</text>
+					</view>
+					<view class="label-item">
+						<view class="label-icon four"></view>
+						<text class="label-text">主观题未判断</text>
+					</view>
+				</view>
+				<view class="select">
+					<view class="title">选择题</view>
+					<view class="select-list">
+						<view class="select-item"></view>
+						<view class="select-item"></view>
+						<view class="select-item"></view>
+						<view class="select-item"></view>
+						<view class="select-item"></view>
+						<view class="select-item"></view>
+						<view class="select-item"></view>
+					</view>
+				</view>
+
+				<view class="judge">
+					<view class="title">判断题</view>
+					<view class="judge-list">
+						<view class="judge-item"></view>
+						<view class="judge-item"></view>
+						<view class="judge-item"></view>
+						<view class="judge-item"></view>
+					</view>
+				</view>
+
+				<view class="explain">
+					<view class="title">解答题</view>
+					<view class="explain-list">
+						<view class="explain-item"></view>
+					</view>
+				</view>
+
+			</view>
+		</block>
+		<block wx:if="{{tabIndex==3}}">
+			<view class="analyse-box">
+				<view class="tab-radio">
+					<radio-group bindchange="radioChange" class="tab-radio-group">
+						<label class="weui-check__label" wx:for="{{radioItems}}" wx:key="{{item.value}}">
+							<view class="weui-cell__hd">
+								<radio value="{{item.value}}" checked="true" />
+							</view>
+							<view class="weui-cell__bd">{{item.name}}</view>
+						</label>
+					</radio-group>
+				</view>
+
+        <view class="analyse-list">
+          <view class="analyse-item">
+            <view class="title">
+              <text class="index">1.</text>
+              <text class="type">（单选题）</text>
+              <text class="name">web前端开发中的“web”指1的是web前端开发中的“web”指1的是()。</text>
+            </view>
+            <view class="topic">
+              <view class="topic-item">
+                <view class="topic-index">A</view>
+                <view class="topic-title">Internet</view>
+                <view class="topic-my">（我的选择）</view>
+              </view>
+               <view class="topic-item">
+                <view class="topic-index">B</view>
+                <view class="topic-title">Internet</view>
+              </view>
+               <view class="topic-item">
+                <view class="topic-index">C</view>
+                <view class="topic-title">Internet</view>
+              </view>
+            </view>
+            <view class="result">
+              <view class="result-title">
+                <view class="icon"></view>
+                <view class="text">考点</view>
+              </view>
+              <view class="result-content">web标准</view>
+              <view class="result-title">
+                <view class="icon"></view>
+                <view class="text">答案解析</view>
+              </view>
+              <view class="result-content current">web标准是由W3C和其他标准化组织制定的一套规范集合，包含一系列标准，自然也包含了我们所熟悉的HTML，XHTML，JavaScript以及CSS等。故本题答案为D。</view>
+            </view>
+
+          </view>
+        </view>
+
+			</view>
+		</block>
+	</view>
+
+</view>

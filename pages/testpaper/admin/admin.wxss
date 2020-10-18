@@ -1,0 +1,150 @@
+/* pages/testpaper/admin.wxss */
+.test-parper-admin {
+  width: 100%;
+  padding: 0 32rpx 10rpx;
+  box-sizing: border-box;
+}
+.test-parper-admin .search {
+  margin-top: 32rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 80rpx;
+  padding: 0 32rpx;
+  box-sizing: border-box;
+  background-color: #F8F8F8;
+  border-radius: 40rpx;
+}
+.test-parper-admin .search .search-icon {
+  width: 28rpx;
+  height: 28rpx;
+}
+
+.test-parper-admin .search .search-input {
+  margin-left: 20rpx;
+}
+
+.test-parper-admin .parper-tab {
+  margin-top: 48rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.test-parper-admin .parper-tab .scroll-view_H {
+  white-space: nowrap;
+  display: flex;
+  flex-direction: row;
+}
+
+.scroll-view-item_H{
+  position: relative;
+ display: inline-block;
+ height: 62rpx;
+ margin-right: 56rpx;
+}
+.scroll-view-item_H .line {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -32rpx;
+  margin-top: 24rpx;
+  width: 64rpx;
+  height: 10rpx;
+  background: #FF8053;
+  border-radius: 5rpx;
+}
+
+.parper-list {
+  margin-top: 50rpx;
+}
+
+.parper-list .parper-item {
+  margin-top: 50rpx;
+  padding-bottom: 40rpx;
+  border-bottom: 2rpx solid #F2F2F4;
+  box-sizing: border-box;
+}
+
+.parper-list .parper-item .head {
+}
+
+.parper-list .parper-item .head .head-icon{
+  display: inline;
+  padding: 6rpx 8rpx;
+  box-sizing: border-box;
+  font-size: 24rpx;
+  border-radius: 8rpx;
+  color: #fff;
+}
+.parper-list .parper-item .head .head-icon.up {
+  background-color: rgba(115,210,127, 0.24);
+  color: #73D27F;
+}
+.parper-list .parper-item .head .head-icon.down {
+  background-color: rgba(255,128,83, 0.24);
+  color: #FF8053;
+}
+
+.parper-list .parper-item .head .head-title {
+  display: inline;
+  margin-left: 16rpx;
+  font-size: 30rpx;
+  font-weight: 700;
+  line-height: 60rpx;
+  color: #333333;
+}
+
+.parper-list .parper-item .label {
+  margin-top: 24rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.parper-list .parper-item .label .label-list {
+  display: flex;
+  flex-direction: row;
+}
+.parper-list .parper-item .label .label-list .label-item {
+  padding: 12rpx 16rpx;
+  box-sizing: border-box;
+  background-color: #F5F5F5;
+  color: #999999;
+  margin-right: 24rpx;
+  border-radius: 8rpx;
+  font-size: 26rpx;
+}
+.parper-list .parper-item .label .label-status {
+  width: 120rpx;
+  height: 56rpx;
+  background-color: #FF8053;
+  text-align: center;
+  border-radius: 28rpx;
+  text-align: center;
+  line-height: 56rpx;
+  color: #fff;
+}
+
+.parper-list .parper-item .time {
+  margin-top: 28rpx;
+  color: #999999;
+}
+
+.empty {
+  margin-top: 100rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.empty image {
+  width: 146rpx;
+  height: 128rpx;
+}
+.empty view {
+  margin-top: 20rpx;
+  color: #999999;
+}
