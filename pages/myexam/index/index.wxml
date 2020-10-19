@@ -1,0 +1,35 @@
+<!--pages/myexam/index/index.wxml-->
+
+<view class="my-exam">
+	<view class="parper-tab">
+		<scroll-view class="scroll-view_H" scroll-x="true" bindscroll="scroll" style="width: 100%">
+			<view id="demo1" class="scroll-view-item_H demo-text-1">
+				<view class="text">普通试卷</view>
+				<view class="line"></view>
+			</view>
+		</scroll-view>
+	</view>
+
+	<view class="exam-list">
+		<view class="exam-item" wx:for="{{list}}" wx:key="{{index}}">
+			<view class="title">{{item.paperName}}</view>
+			<view class="label">
+				<block wx:if="{{item.level == 'simple'}}">
+					<view class="label-item">简单</view>
+				</block>
+				<block wx:if="{{item.level == 'commonly'}}">
+					<view class="label-item">中等</view>
+				</block>
+				<block wx:if="{{item.level == 'difficulty'}}">
+					<view class="label-item">困难</view>
+				</block>
+			</view>
+			<view class="bottom">
+				<view class="leave-time">{{item.updateTime}}离开</view>
+				<view class="over">31题已完成/4题未完成</view>
+				<view class="btn">{{item.status == 1 ? "继续" : "交卷"}}</view>
+			</view>
+		</view>
+	</view>
+
+</view>

@@ -175,6 +175,9 @@
   flex: 0 0 150rpx;
   width: 150rpx;
   text-align: right;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .report .list .item .num {
 }
@@ -210,7 +213,6 @@
   margin-left: 24rpx;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .score-list .score-item .score-info .content .name {
