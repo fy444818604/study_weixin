@@ -28,19 +28,23 @@ Page({
   },
 
   getRecord() {
+    let array = []
     this.list.map(v => {
       let isAnswer = v.optionList.some(item => {
         return item.active
       })
       if (isAnswer) {
-        // let recordItem = {
-        //   qstType: v.type,
-        //   pointId: v.pointId,
-        //   qstIdsLite: v.qstContent,
-        //   answerLite:,
-        //   score:v.score,
-        //   paperMiddle: 
-        // }
+        let recordItem = {
+          qstType: v.type,
+          pointId: v.pointId,
+          qstIdsLite: v.qstContent,
+          answerLite: v.optAnswer,
+          score:v.score,
+          paperMiddle: v.paperMiddle,
+          userAnswer: v.userAnswer
+        }
+
+        
       }
     })
   },
@@ -79,13 +83,23 @@ Page({
         v.active = false
       })
       this.data.list[this.data.current].optionList[index].active = true
+      this.data.list[this.data.current].userAnswer = this.data.list[this.data.current].optionList[index].optOrder
     } else if (this.data.type == 2 || this.data.type == 5) {
-      this.data.list[this.data.current].optionList[index].active = !this.data.list[this.data.current].optionList[index].active
+      let str = '';
+      this.data.list[this.data.current].optionList[index].active = !this.data.list[this.data.current].optionList[index].active;
+      this.data.list[this.data.current].optionList.map(v => {
+        if(v.active){
+          str += v.optOrder
+        }
+      })
+      this.data.list[this.data.current].userAnswer = str
     }
 
     this.setData({
       list: _this.data.list
     })
+
+    this.getRecord()
   },
 
   pause() {
@@ -185,7 +199,9 @@ Page({
             everyScore: v.score,
             num: v.num,
             name: v.name,
-            title: v.title
+            title: v.title,
+            paperMiddle: v.id,
+            userAnswer:''
           }
           v.qstMiddleList.map(v1 => {
             v1 = Object.assign(v1, obj);
