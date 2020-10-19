@@ -15,6 +15,7 @@
 				<view class="text">平均分</view>
 			</view>
 		</view>
+	</view>
 
 		<view class="info-container">
 			<view class="info">
@@ -62,7 +63,6 @@
 				</view>
 			</view>
 		</view>
-	</view>
 
 	<view class="tab">
 		<view class="tab-item" bindtap="handleChangeTab" data-index="1">

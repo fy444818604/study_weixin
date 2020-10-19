@@ -2,6 +2,7 @@
 @import 'lib/fonts/iconfont.wxss';
 @import 'lib/style/style.wxss';
 @import '/pages/template/tabbar.wxss';
+@import "lib/wxParse/wxParse.wxss";
 page {
   background: #fff;
   height: 100%;

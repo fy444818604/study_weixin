@@ -1,4 +1,5 @@
 <!--pages/myexam/result/result.wxml-->
+<import src="../../../lib/wxParse/wxParse.wxml" />
 <view class="exam-result">
 	<view class="tab">
 		<view class="tab-item" wx:for="{{tabArr}}" wx:key="item.index" bindtap="handleChangeTab" data-index="{{item.index}}">
@@ -23,7 +24,7 @@
 							<image src="/img/icon-time-long.png"></image>
 						</view>
 						<text class="title">考试时长</text>
-						<text class="time">45分32秒</text>
+						<text class="time">{{replyTime}}分钟</text>
 					</view>
 				</view>
 
@@ -76,33 +77,10 @@
 						<text class="label-text">主观题未判断</text>
 					</view>
 				</view>
-				<view class="select">
-					<view class="title">选择题</view>
+				<view class="select" wx:for="{{middleListResult}}" wx:key="{{index}}">
+					<view class="title">{{item.name}}</view>
 					<view class="select-list">
-						<view class="select-item"></view>
-						<view class="select-item"></view>
-						<view class="select-item"></view>
-						<view class="select-item"></view>
-						<view class="select-item"></view>
-						<view class="select-item"></view>
-						<view class="select-item"></view>
-					</view>
-				</view>
-
-				<view class="judge">
-					<view class="title">判断题</view>
-					<view class="judge-list">
-						<view class="judge-item"></view>
-						<view class="judge-item"></view>
-						<view class="judge-item"></view>
-						<view class="judge-item"></view>
-					</view>
-				</view>
-
-				<view class="explain">
-					<view class="title">解答题</view>
-					<view class="explain-list">
-						<view class="explain-item"></view>
+						<view class="{{item.status == '0' ? 'select-item green' : 'select-item red'}}" wx:for="{{item.qstMiddleList}}">{{index + 1}}</view>
 					</view>
 				</view>
 
@@ -114,51 +92,140 @@
 					<radio-group bindchange="radioChange" class="tab-radio-group">
 						<label class="weui-check__label" wx:for="{{radioItems}}" wx:key="{{item.value}}">
 							<view class="weui-cell__hd">
-								<radio value="{{item.value}}" checked="true" />
+								<radio value="{{item.value}}" checked="{{item.checked}}" />
 							</view>
 							<view class="weui-cell__bd">{{item.name}}</view>
 						</label>
 					</radio-group>
 				</view>
 
-        <view class="analyse-list">
-          <view class="analyse-item">
-            <view class="title">
-              <text class="index">1.</text>
-              <text class="type">（单选题）</text>
-              <text class="name">web前端开发中的“web”指1的是web前端开发中的“web”指1的是()。</text>
-            </view>
-            <view class="topic">
-              <view class="topic-item">
-                <view class="topic-index">A</view>
-                <view class="topic-title">Internet</view>
-                <view class="topic-my">（我的选择）</view>
-              </view>
-               <view class="topic-item">
-                <view class="topic-index">B</view>
-                <view class="topic-title">Internet</view>
-              </view>
-               <view class="topic-item">
-                <view class="topic-index">C</view>
-                <view class="topic-title">Internet</view>
-              </view>
-            </view>
-            <view class="result">
-              <view class="result-title">
-                <view class="icon"></view>
-                <view class="text">考点</view>
-              </view>
-              <view class="result-content">web标准</view>
-              <view class="result-title">
-                <view class="icon"></view>
-                <view class="text">答案解析</view>
-              </view>
-              <view class="result-content current">web标准是由W3C和其他标准化组织制定的一套规范集合，包含一系列标准，自然也包含了我们所熟悉的HTML，XHTML，JavaScript以及CSS等。故本题答案为D。</view>
-            </view>
+				<view class="analyse-list">
+					<view class="analyse-item" wx:for="{{middleList}}" wx:key="{{index}}">
+						<view class="title" wx:if="{{item.qstMiddleList.length > 0}}">
+							<text class="index">{{index + 1}}.</text>
+							<text class="type">（{{item.name}}）</text>
+							<!-- <text class="name">{{item.title}}</text> -->
+						</view>
+						<block wx:if="{{item.type == 1 || item.type == 2 || item.type == 5 }}" wx:for="{{item.qstMiddleList}}" wx:for-item="val" wx:key="{{index}}">
+							<view class="topic">
+								<view class="title">{{val.qstContent}}</view>
+								<view class="topic-item" wx:for="{{val.optionList}}" wx:for-item="i" wx:key="{{index}}">
+									<view class="{{i.isAll ? 'topic-index current' : 'topic-index'}}">{{i.optOrder}}</view>
+									<view class="topic-title">
+										<rich-text nodes="{{i.optContent}}"></rich-text>
+									</view>
+									<view class="topic-my" wx:if="{{i.isFlag}}">（我的选择）</view>
+								</view>
+							</view>
+							<view class="result">
+								<view class="result-title">
+									<view class="icon"></view>
+									<view class="text">考点</view>
+								</view>
+								<view class="result-content">{{val.pointName}}</view>
+								<view class="result-title">
+									<view class="icon"></view>
+									<view class="text">答案解析</view>
+								</view>
+								<view class="result-content current">{{val.isAsr}}</view>
+							</view>
+						</block>
 
-          </view>
-        </view>
+						<block wx:if="{{item.type == 3}}" wx:for="{{item.qstMiddleList}}" wx:for-item="val" wx:key="{{index}}">
+							<view class="flag">
+								<view class="is-flag">{{val.qstContent}}</view>
+								<view class="change" wx:for="{{val.optionList}}" wx:for-item="key" wx:key="{{index}}">
+									<view class="{{key.optAnswer == key.optOrder ? 'icon green' : 'icon'}}">{{key.optOrder}}</view>
+									<view class="title">{{key.optContent}}</view>
+									<view class="errinfo" wx:if="{{key.optAnswer != key.optOrder}}">（我的选择）</view>
+								</view>
+							</view>
+							<view class="result">
+								<view class="result-title">
+									<view class="icon"></view>
+									<view class="text">考点</view>
+								</view>
+								<view class="result-content">{{val.pointName}}</view>
+								<view class="result-title">
+									<view class="icon"></view>
+									<view class="text">答案解析</view>
+								</view>
+								<view class="result-content current">{{val.isAsr}}</view>
+							</view>
+						</block>
 
+						<block wx:if="{{item.type == 7}}" wx:for="{{item.qstMiddleList}}" wx:for-item="val" wx:key="{{index}}">
+							<view class="fill">
+								<view class="title">问题：{{val.qstContent}}</view>
+								<view class="answer">答案：
+									<view>
+										<rich-text nodes="{{val.userAnswer}}"></rich-text>
+									</view>
+								</view>
+							</view>
+							<view class="result">
+								<view class="result-title">
+									<view class="icon"></view>
+									<view class="text">考点</view>
+								</view>
+								<view class="result-content">{{val.pointName}}</view>
+								<view class="result-title">
+									<view class="icon"></view>
+									<view class="text">答案解析</view>
+								</view>
+								<view class="result-content current">{{val.isAsr}}</view>
+							</view>
+						</block>
+
+						<block wx:if="{{item.type == 6}}" wx:for="{{item.qstMiddleList}}" wx:for-item="val" wx:key="{{index}}">
+							<view class="essay">
+								<view class="essay-item">
+									<view class="title">{{val.qstContent}}</view>
+									<view class="answer">
+										<rich-text nodes="{{val.userAnswer}}"></rich-text>
+									</view>
+								</view>
+							</view>
+							<view class="result">
+								<view class="result-title">
+									<view class="icon"></view>
+									<view class="text">考点</view>
+								</view>
+								<view class="result-content">{{val.pointName}}</view>
+								<view class="result-title">
+									<view class="icon"></view>
+									<view class="text">答案解析</view>
+								</view>
+								<view class="result-content current">{{val.isAsr}}</view>
+							</view>
+						</block>
+
+						<!-- <block wx:if="{{item.type == 4}}" wx:for="{{item.qstMiddleList}}" wx:for-item="val" wx:key="{{index}}">
+							<view class="synthesize">
+								<view class="synthesize-item">
+									<view class="title">{{val.qstContent}}</view>
+									<view class="item" wx:for="{{val.queryQuestionList}}" wx:for-item="i" wx:key="{{index}}">
+										<view class="question">{{index+1}}: {{i.shortQstContent}}</view>
+										<view class="answer">{{i.userAnswer}}</view>
+									</view>
+								</view>
+							</view>
+							<view class="result">
+								<view class="result-title">
+									<view class="icon"></view>
+									<view class="text">考点</view>
+								</view>
+								<view class="result-content">{{val.pointName}}</view>
+								<view class="result-title">
+									<view class="icon"></view>
+									<view class="text">答案解析</view>
+								</view>
+								<view class="result-content current">{{val.isAsr}}</view>
+							</view>
+						</block> -->
+
+					</view>
+				</view>
 			</view>
 		</block>
 	</view>

@@ -125,6 +125,7 @@
 }
 
 .answer-box .label {
+  margin-bottom: 48rpx;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -161,36 +162,44 @@
   color: #999999;
 }
 
-.answer-box .select,.answer-box .judge,.answer-box .explain {
-  margin-top: 56rpx;
+.answer-box .select {
+  margin-top: 14 rpx;
 }
-.answer-box .select .title,.answer-box .judge .title,.answer-box .explain .title {
+.answer-box .select .title {
   font-size: 30rpx;
   color: #333333;
 }
 
-.answer-box .select .select-list,.answer-box .judge .judge-list,.answer-box .explain .explain-list {
+.answer-box .select .select-list {
   margin-top: 32rpx;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 
-.answer-box .select .select-list .select-item,.answer-box .judge .judge-list .judge-item,.answer-box .explain .explain-list .explain-item {
+.answer-box .select .select-list .select-item {
   margin-right: 68rpx;
   margin-bottom: 40rpx;
   flex: 0 0 80rpx;
   width: 80rpx;
   height: 80rpx;
   border-radius: 50%;
+  text-align: center;
+  line-height: 80rpx;
+  color: #fff;
+}
+.answer-box .select .select-list .select-item.green {
   background: #73D27F;
+}
+.answer-box .select .select-list .select-item.red {
+  background: #FF6E6E;
 }
 
 .answer-box .select .select-list .select-item:nth-of-type(5n),.answer-box .judge .judge-list .judge-item:nth-of-type(5n),.answer-box .explain .explain-list .explain-item:nth-of-type(5n) {
   margin-right: 0;
 }
 
-.analyse-box {
+.topic {
 
 }
 
@@ -230,7 +239,10 @@
 }
 
 .analyse-box .analyse-list .analyse-item .topic {
-  margin-top: 60rpx;
+  margin-top: 30rpx;
+}
+.analyse-box .analyse-list .analyse-item .topic .title {
+  margin: 20rpx 0;
 }
 
 .analyse-box .analyse-list .analyse-item .topic .topic-item {
@@ -248,6 +260,12 @@
   text-align: center;
   line-height: 56rpx;
 }
+
+.analyse-box .analyse-list .analyse-item .topic .topic-item .topic-index.current {
+  background: #73D27F;
+  color: #fff;
+}
+
 .analyse-box .analyse-list .analyse-item .topic .topic-item .topic-title {
   color: #333333;
   font-size: 30rpx;
@@ -255,12 +273,96 @@
 }
 .analyse-box .analyse-list .analyse-item .topic .topic-item .topic-my {
   margin-left: 10rpx;
-  color: #4FAF5B;
+  color: #FF6E6E;
 }
+
+
+.analyse-box .analyse-list .analyse-item .essay {
+  margin: 20rpx 0;
+}
+
+.analyse-box .analyse-list .analyse-item .essay .essay-item .title {
+  color: #999;
+}
+.analyse-box .analyse-list .analyse-item .essay .essay-item .answer {
+  margin-top: 20rpx;
+  color: #333333;
+}
+
+.analyse-box .analyse-list .analyse-item .fill {
+  margin: 20rpx 0;
+}
+.analyse-box .analyse-list .analyse-item .fill .title {
+  color: #999999;
+}
+.analyse-box .analyse-list .analyse-item .fill .answer {
+  margin-top: 20rpx;
+  color: #333333;
+}
+
+.analyse-box .analyse-list .analyse-item .flag {
+  margin: 20rpx 0;
+}
+.analyse-box .analyse-list .analyse-item .flag .change {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20rpx;
+}
+.analyse-box .analyse-list .analyse-item .flag .change .icon {
+  width: 56rpx;
+  height: 56rpx;
+  border: 2rpx solid #F2F2F4;
+  border-radius: 50%;
+  text-align: center;
+  align-items: center;
+  line-height: 56rpx;
+}
+.analyse-box .analyse-list .analyse-item .flag .change .icon.green {
+  background: #73D27F;
+  color: #fff;
+}
+
+.analyse-box .analyse-list .analyse-item .flag .change .title {
+  color: #333333;
+}
+.analyse-box .analyse-list .analyse-item .flag .change .errinfo {
+  margin-left: 20rpx;
+  color: #FF6E6E;
+}
+
+.analyse-box .analyse-list .analyse-item .flag .change .title {
+  margin-left: 24rpx;
+}
+
+
+.analyse-box .analyse-list .analyse-item .synthesize {
+  margin: 20rpx 0;
+}
+
+.analyse-box .analyse-list .analyse-item .synthesize .synthesize-item {
+  margin: 10rpx 0;
+}
+
+.analyse-box .analyse-list .analyse-item .synthesize .synthesize-item .item {
+  margin: 20rpx 0;
+}
+
+.analyse-box .analyse-list .analyse-item .synthesize .synthesize-item .item .question {
+  color: #999;
+}
+
+.analyse-box .analyse-list .analyse-item .synthesize .synthesize-item .item .answer {
+  margin-top: 10rpx;
+  color: #333333;
+}
+
+
 .analyse-box .analyse-list .analyse-item .result {
   width: 100%;
   padding: 48rpx 24rpx;
   background: #F5F5F5;
+  box-sizing: border-box;
 }
 .analyse-box .analyse-list .analyse-item .result .result-title {
   display: flex;
