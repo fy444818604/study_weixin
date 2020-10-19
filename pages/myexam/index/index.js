@@ -17,18 +17,36 @@ Page({
     const userId = wx.getStorageSync('user').userId;
     api.ucExamHistory({
       data: {
-        userId: userId,
+        sellType: "examPaper",
+        userId: 3386,
         currentPage: 1,
         pageSize: 10,
       },
       success: res => {
         console.log("res", res)
-        let list = res.data.entity.queryPaperRecordList.map(item => {
-          item.leaveTime = item.updateTime.substr(0,11)
+        let result = res.data.paperRecordList.map(item => {
+          return item.epId
+        });
+        console.log("result", result)
+        
+        let list = res.data.paperList.map(item => {
+          result.forEach(v => {
+            console.log("v", v)
+            console.log("item", item)
+            if(item.id == v) {
+              item.isHistroy = true;
+            }
+          })
+          item.leaveTime = item.updateTime && item.updateTime.substr(11)
+          item.notJoin = Math.abs(item.notJoin)
+          
+          return item;
         })
+        console.log("list", list)
+
 
         this.setData({
-          list: res.data.entity.queryPaperRecordList
+          list: list
         })
         
       }

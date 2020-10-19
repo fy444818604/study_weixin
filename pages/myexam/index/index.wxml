@@ -12,7 +12,7 @@
 
 	<view class="exam-list">
 		<view class="exam-item" wx:for="{{list}}" wx:key="{{index}}">
-			<view class="title">{{item.paperName}}</view>
+			<view class="title">{{item.name}}</view>
 			<view class="label">
 				<block wx:if="{{item.level == 'simple'}}">
 					<view class="label-item">简单</view>
@@ -25,8 +25,8 @@
 				</block>
 			</view>
 			<view class="bottom">
-				<view class="leave-time">{{item.updateTime}}离开</view>
-				<view class="over">31题已完成/4题未完成</view>
+				<view class="leave-time">{{item.leaveTime}}离开</view>
+				<view class="over">{{item.doTimes}}题已完成/{{item.notJoin}}题未完成</view>
 				<view class="btn">{{item.status == 1 ? "继续" : "交卷"}}</view>
 			</view>
 		</view>

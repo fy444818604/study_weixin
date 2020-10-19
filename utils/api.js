@@ -99,9 +99,7 @@ const paperAnalysisChart = (params, id) => wxRequest(params, `/webapp/examPaper/
 const recordList = (params, id) => wxRequest(params, `/webapp/examPaper/recordList/${id}`)
 const paperReport = (params) => wxRequest(params, `/webapp/exam/paperReport`)
 const reportDetail = (params,obj) => wxRequest(params, `/webapp/paper/report/${obj.id}/${obj.userId}`)
-const ucExamHistory = (params) => wxRequest(params, `/webapp/exam/ucExamHistory`)
-
-
+const ucExamHistory = (params) => wxRequest(params, `/webapp/exam/ucExam`)
 module.exports = {
   host,
   isEmpty,
