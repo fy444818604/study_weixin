@@ -1,5 +1,4 @@
 <!--pages/myexam/result/result.wxml-->
-<import src="../../../lib/wxParse/wxParse.wxml" />
 <view class="exam-result">
 	<view class="tab">
 		<view class="tab-item" wx:for="{{tabArr}}" wx:key="item.index" bindtap="handleChangeTab" data-index="{{item.index}}">

@@ -1,6 +1,5 @@
 // pages/myexam/result/result.js
 const api = require('../../../utils/api')
-const WxParse = require('../../../lib/wxParse/wxParse');
 Page({
 
   /**
