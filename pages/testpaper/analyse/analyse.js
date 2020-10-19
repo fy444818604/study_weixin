@@ -41,7 +41,7 @@ Page({
           passRate: paperStatistics.passRate,
           level: examPaper.level,
           score: examPaper.score,
-          rate: examPaper.passRate
+          rate: Math.floor(examPaper.score * examPaper.passRate / 100)
         })
       }
     }, id)

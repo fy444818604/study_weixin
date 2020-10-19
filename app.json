@@ -4,9 +4,13 @@
     "pages/myexam/result/result",
 
     "pages/web/index/index",
+    "pages/myexam/index/index",
 
     "pages/testpaper/admin/admin",
 
+
+    "pages/web/index/index",
+    "pages/myexam/result/result",
     "pages/testpaper/analyse/analyse",
 
     "pages/web/ucenter/uAccount/index",

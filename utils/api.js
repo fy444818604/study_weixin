@@ -87,22 +87,19 @@ const thirdLoginReturn = (params) => wxRequest(params, "/webapp/thirdLogin/retur
 const bundingOld = (params) => wxRequest(params, "/webapp/user/bundingOld");
 const bundingNew = (params) => wxRequest(params, "/webapp/user/bundingNew");
 const authLogin = (params, params1) => wxRequest(params, `/webapp/authLogin?accesstoken=${params1}`)
-
 const exam = (params) => wxRequest(params, `/webapp/exam/paperAnswer`)
 const submitExam = (params) => wxRequest(params, `/webapp/exam/addPaperRecord1`)
 
+// const submitExam = (params) => wxRequest(params, `/webapp/exam/addPaperRecord`)
 const myExam = (params) => wxRequest(params, `/webapp/exam/queryMyExam`)
-
 const allParper = (params) => wxRequest(params, `/webapp/paper/list/examPaper`)
 const updPaperState = (params) => wxRequest(params, `/webapp/paper/updPaperState`)
-
 const paperAnalysis = (params, id) => wxRequest(params, `/webapp/examPaper/paperAnalysis/${id}`)
 const paperAnalysisChart = (params, id) => wxRequest(params, `/webapp/examPaper/paperAnalysisChart/${id}`)
 const recordList = (params, id) => wxRequest(params, `/webapp/examPaper/recordList/${id}`)
-
 const paperReport = (params) => wxRequest(params, `/webapp/exam/paperReport`)
-
 const reportDetail = (params,obj) => wxRequest(params, `/webapp/paper/report/${obj.id}/${obj.userId}`)
+const ucExamHistory = (params) => wxRequest(params, `/webapp/exam/ucExamHistory`)
 
 
 module.exports = {
@@ -161,5 +158,6 @@ module.exports = {
   paperAnalysisChart,
   recordList,
   paperReport,
-  reportDetail
+  reportDetail,
+  ucExamHistory
 }
