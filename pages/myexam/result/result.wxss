@@ -1,0 +1,288 @@
+/* pages/myexam/result/result.wxss */
+.exam-result {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.exam-result .tab {
+  margin-top: 48rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 2rpx solid #F2F2F4;
+}
+
+.exam-result .tab .tab-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.exam-result .tab .tab-item .tab-item-text {
+  font-size: 28rpx;
+  color: #999999;
+  font-weight: 400;
+}
+
+.exam-result .tab .tab-item .tab-item-text.current {
+  color: #333333;
+}
+
+.exam-result .tab .tab-item .tab-item-line {
+  margin-top: 24rpx;
+  width: 64rpx;
+  height: 10rpx;
+  border-radius: 5rpx;
+  background: transparent;
+}
+.exam-result .tab .tab-item .tab-item-line.current {
+  background: #FF8053;
+}
+
+.exam-content {
+  width: 100%;
+  padding: 56rpx 32rpx;
+  box-sizing: border-box;
+}
+
+.exam-box {
+
+}
+
+.exam-box .head {
+
+}
+
+.exam-box .head .head-item {
+  margin-bottom: 40rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.exam-box .head .head-item .icon {
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 50%;
+}
+
+.exam-box .head .head-item .icon image {
+  width: 100%;
+  height: 100%;
+}
+
+.exam-box .head .head-item .title {
+  margin-left: 20rpx;
+  color: #999999;
+  font-size: 30rpx;
+}
+
+.exam-box .head .head-item .time {
+  margin-left: 32rpx;
+  color: #333333;
+  font-size: 30rpx;
+}
+
+.exam-box .content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 56rpx;
+  width: 100%;
+  height: 340rpx;
+  background: #ffffff;
+  border-radius: 24rpx;
+  box-shadow: 0 0 16rpx 0 rgba(0,0,0,0.06); 
+}
+
+.exam-box .content .content-i {
+  flex: 0 0 33%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 2rpx solid #EDEDED;
+}
+.exam-box .content .content-i.current {
+  border-right: none;
+}
+.exam-box .content .content-i .num {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #FF8053;
+}
+.exam-box .content .content-i .text {
+  margin-top: 24rpx;
+  font-size: 26rpx;
+  color: #999999;
+}
+
+.answer-box {
+
+}
+
+.answer-box .label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.answer-box .label .label-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.answer-box .label .label-item .label-icon {
+  width: 24rpx;
+  height: 24rpx;
+  border-radius: 4rpx;
+}
+.answer-box .label .label-item .label-icon.one {
+  background: #73D27F;
+}
+.answer-box .label .label-item .label-icon.two {
+  background: #FF6E6E;
+}
+.answer-box .label .label-item .label-icon.three {
+  background: #FFE3D9;
+}
+.answer-box .label .label-item .label-icon.four {
+  background: #F2F2F4;
+}
+
+.answer-box .label .label-item .label-text {
+  margin-left: 12rpx;
+  font-size: 24rpx;
+  color: #999999;
+}
+
+.answer-box .select,.answer-box .judge,.answer-box .explain {
+  margin-top: 56rpx;
+}
+.answer-box .select .title,.answer-box .judge .title,.answer-box .explain .title {
+  font-size: 30rpx;
+  color: #333333;
+}
+
+.answer-box .select .select-list,.answer-box .judge .judge-list,.answer-box .explain .explain-list {
+  margin-top: 32rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.answer-box .select .select-list .select-item,.answer-box .judge .judge-list .judge-item,.answer-box .explain .explain-list .explain-item {
+  margin-right: 68rpx;
+  margin-bottom: 40rpx;
+  flex: 0 0 80rpx;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background: #73D27F;
+}
+
+.answer-box .select .select-list .select-item:nth-of-type(5n),.answer-box .judge .judge-list .judge-item:nth-of-type(5n),.answer-box .explain .explain-list .explain-item:nth-of-type(5n) {
+  margin-right: 0;
+}
+
+.analyse-box {
+
+}
+
+.analyse-box .tab-radio {
+  display: flex;
+  align-items: center;
+}
+.analyse-box .tab-radio .tab-radio-group {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.analyse-box .tab-radio .weui-check__label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.analyse-box .tab-radio .weui-cell__bd {
+  margin-left: 20rpx;
+  font-size: 24rpx;
+  color: #999999;
+}
+.analyse-box .analyse-list {
+}
+.analyse-box .analyse-list .analyse-item {
+  margin-top: 70rpx;
+}
+.analyse-box .analyse-list .analyse-item .title {
+
+}
+
+.analyse-box .analyse-list .analyse-item .title .type {
+  color: #999999;
+  font-size: 30rpx;
+}
+
+.analyse-box .analyse-list .analyse-item .topic {
+  margin-top: 60rpx;
+}
+
+.analyse-box .analyse-list .analyse-item .topic .topic-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 56rpx;
+}
+
+.analyse-box .analyse-list .analyse-item .topic .topic-item .topic-index {
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 50%;
+  border: 2rpx solid #f2f2f4;
+  text-align: center;
+  line-height: 56rpx;
+}
+.analyse-box .analyse-list .analyse-item .topic .topic-item .topic-title {
+  color: #333333;
+  font-size: 30rpx;
+  margin-left: 24rpx;
+}
+.analyse-box .analyse-list .analyse-item .topic .topic-item .topic-my {
+  margin-left: 10rpx;
+  color: #4FAF5B;
+}
+.analyse-box .analyse-list .analyse-item .result {
+  width: 100%;
+  padding: 48rpx 24rpx;
+  background: #F5F5F5;
+}
+.analyse-box .analyse-list .analyse-item .result .result-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40rpx;
+}
+.analyse-box .analyse-list .analyse-item .result .result-title .icon {
+  width: 12rpx;
+  height: 32rpx;
+  border-radius: 6rpx;
+  background: #FF8053;
+}
+.analyse-box .analyse-list .analyse-item .result .result-title .text {
+  margin-left: 16rpx;
+  font-size: 28rpx;
+  color: #999999;
+}
+.analyse-box .analyse-list .analyse-item .result .result-content {
+  margin-bottom: 48rpx;
+  font-size: 28rpx;
+  color: #333333;
+}
+.analyse-box .analyse-list .analyse-item .result .result-content.current {
+  margin-bottom: 0;
+}

@@ -1,0 +1,47 @@
+<!--pages/testpaper/admin.wxml-->
+<view class="test-parper-admin">
+	<view class="search">
+		<image src="/img/search.png" class="search-icon" />
+		<input class="search-input" auto-focus placeholder="请输入关键字搜索" bindconfirm="handleSearch" />
+	</view>
+	<view class="parper-tab">
+		<scroll-view class="scroll-view_H" scroll-x="true" bindscroll="scroll" style="width: 100%">
+			<view id="demo1" class="scroll-view-item_H demo-text-1">
+				<view class="text">普通试卷</view>
+				<view class="line"></view>
+			</view>
+		</scroll-view>
+	</view>
+
+	<view class="parper-list" hidden="{{paperList.length <= 0}}">
+		<view class="parper-item" wx:for="{{paperList}}" wx:key="{{index}}">
+			<view class="head">
+				<view class="{{item.status == 'normal' ? 'head-icon up' : 'head-icon down'}}">{{item.status =="normal" ? "上架" : "下架"}}</view>
+				<view class="head-title" data-id="{{item.id}}" bindtap="handlePushAnalyse">{{item.name}}</view>
+			</view>
+			<view class="label">
+				<view class="label-list">
+					<view class="label-item">{{item.subjectName}}</view>
+					<block wx:if="{{item.level == 'simple'}}">
+						<view class="label-item">简单</view>
+					</block>
+					<block wx:if="{{item.level == 'commonly'}}">
+						<view class="label-item">中等</view>
+					</block>
+					<block wx:if="{{item.level == 'difficulty'}}">
+						<view class="label-item">困难</view>
+					</block>
+					<view class="label-item">{{item.score}}学分</view>
+				</view>
+				<view class="label-status" data-status="{{item.status}}" data-id="{{item.id}}" bindtap="handleChangeStatus">{{item.status =="normal" ? "下架" : "上架"}}</view>
+			</view>
+			<view class="time">{{item.updateTime}}</view>
+		</view>
+	</view>
+
+	<view class="empty" hidden="{{paperList.length > 0}}">
+		<image src="/img/empty.png"></image>
+    <view>暂无相关数据</view>
+	</view>
+
+</view>

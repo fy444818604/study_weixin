@@ -1,0 +1,230 @@
+/* pages/testpaper/analyse/analyse.wxss */
+
+.analyse {
+  width: 100%;
+}
+
+.analyse .head {
+  position: relative;
+  width: 100%;
+  height: 390rpx;
+  background-color: #FF8053;
+  border-bottom-left-radius: 128rpx;
+  border-bottom-right-radius: 128rpx;
+}
+
+.analyse .head .head-list {
+  padding-top: 56rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.analyse .head .head-list .head-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.analyse .head .head-list .head-item .num {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #fff;
+}
+.analyse .head .head-list .head-item .text {
+  margin-top: 24rpx;
+  font-size: 26rpx;
+  color: rgba(255,255,255,0.72);
+}
+.analyse .head .info-container {
+  position: absolute;
+  left: 5%;
+  top: 55%;
+  width: 90%;
+  height: 340rpx;
+  background-color: #fff;
+  box-shadow: 0 0 16 0 rgba(0,0,0,0.6); 
+  border-radius: 24rpx;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  box-shadow: 0 0 16rpx 0 rgba(0,0,0,0.06); 
+}
+.analyse .head .info-container .info {
+  flex: 0 0 33%;
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.analyse .head .info-container .info .info-content {
+  width: 100%;
+  border-right: 1px solid #EDEDED;
+}
+.analyse .head .info-container .info .info-content.current {
+  border-right-color: transparent;
+}
+
+.analyse .head .info-container .info .num {
+  font-size: 32rpx;
+  color: #FF8053;
+  font-weight: 700;
+}
+.analyse .head .info-container .info .text {
+  margin-top: 24rpx;
+  color: #999999;
+  font-size: 26rpx;
+}
+
+.tab {
+  margin-top: 240rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.tab .tab-item {
+  margin: 0 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.tab .tab-item .tab-item-text {
+  font-size: 28rpx;
+  color: #999999;
+}
+
+.tab .tab-item .tab-item-line {
+  margin-top: 24rpx;
+  width: 64rpx;
+  height: 10rpx;
+  background-color: transparent;
+  border-radius: 5rpx;
+}
+.tab .tab-item .tab-item-text.current {
+  color: #333333;
+}
+.tab .tab-item .tab-item-line.current {
+  background-color: #FF8053;
+}
+
+.page-section-spacing{
+  margin-top: 60rpx;
+  width: 100%;
+  padding: 0 32rpx;
+  box-sizing: border-box;
+}
+.scroll-view_H{
+  white-space: nowrap;
+}
+
+.scroll-view-item_H{
+  display: inline-block;
+  width: 100%;
+}
+
+.scroll-view-item_H .report {
+
+}
+
+.report .title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.report .title .name {
+  font-size: 30rpx;
+  color: #999999;
+}
+.report .title .num {
+  margin-left: 20rpx;
+  font-size: 30rpx;
+  color: #333333;
+}
+.report .title image {
+  margin-left: 20rpx;
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.report .list {
+  margin-top: 68rpx;
+}
+
+.report .list .item {
+  margin-bottom: 80rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.report .list .item .progress {
+  flex: 0 0 70%;
+  width: 70%;
+}
+.report .list .item .name {
+  flex: 0 0 150rpx;
+  width: 150rpx;
+  text-align: right;
+}
+.report .list .item .num {
+}
+
+.score-list {
+  width: 100%;
+}
+.score-list .score-item {
+  margin-bottom: 32rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24rpx 32rpx;
+  box-sizing: border-box;
+  border-bottom: 2rpx solid #F2F2F4;
+}
+.score-list .score-item .score-info {
+  display: flex;
+  flex-direction: row;
+}
+.score-list .score-item .score-info .avatar {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;
+}
+.score-list .score-item .score-info .avatar image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.score-list .score-item .score-info .content {
+  margin-left: 24rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.score-list .score-item .score-info .content .name {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #333333;
+}
+
+.score-list .score-item .score-info .content .text {
+  margin-top: 24rpx;
+  font-size: 24rpx;
+  color: #999999;
+}
+.score-list .score-item .score-info .content .text.active {
+  color: #FF8053;
+}

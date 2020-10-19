@@ -1,0 +1,113 @@
+<!--pages/testpaper/analyse/analyse.wxml-->
+<view class="analyse">
+	<view class="head">
+		<view class="head-list">
+			<view class="head-item">
+				<view class="num">{{maxScore}}</view>
+				<view class="text">最高分</view>
+			</view>
+			<view class="head-item">
+				<view class="num">{{minScore}}</view>
+				<view class="text">最低分</view>
+			</view>
+			<view class="head-item">
+				<view class="num">{{avgScore}}</view>
+				<view class="text">平均分</view>
+			</view>
+		</view>
+
+		<view class="info-container">
+			<view class="info">
+				<view class="info-content">
+					<view class="num">{{joinNum}}</view>
+					<view class="text">实考人数</view>
+				</view>
+			</view>
+			<view class="info">
+				<view class="info-content">
+					<view class="num">{{passNum}}</view>
+					<view class="text">及格人数</view>
+				</view>
+			</view>
+			<view class="info">
+				<view class="info-content current">
+					<view class="num">{{passRate}}%</view>
+					<view class="text">及格率</view>
+				</view>
+			</view>
+			<view class="info">
+				<view class="info-content">
+					<block wx:if="{{level == 'simple'}}">
+						<view class="num">简单</view>
+					</block>
+					<block wx:if="{{level == 'commonly'}}">
+						<view class="num">困难</view>
+					</block>
+					<block wx:if="{{level == 'difficulty'}}">
+						<view class="num">难度</view>
+					</block>
+					<view class="text">难度</view>
+				</view>
+			</view>
+			<view class="info">
+				<view class="info-content">
+					<view class="num">{{score}}</view>
+					<view class="text">总分</view>
+				</view>
+			</view>
+			<view class="info">
+				<view class="info-content current">
+					<view class="num">{{rate}}</view>
+					<view class="text">及格分</view>
+				</view>
+			</view>
+		</view>
+	</view>
+
+	<view class="tab">
+		<view class="tab-item" bindtap="handleChangeTab" data-index="1">
+			<view class="{{tabIndex==1?'tab-item-text current':'tab-item-text'}}">分数段分布</view>
+			<view class="{{tabIndex==1?'tab-item-line current':'tab-item-line'}}"></view>
+		</view>
+		<view class="tab-item" bindtap="handleChangeTab" data-index="2">
+			<view class="{{tabIndex==2?'tab-item-text current':'tab-item-text'}}">得分排名</view>
+			<view class="{{tabIndex==2?'tab-item-line current':'tab-item-line'}}"></view>
+		</view>
+	</view>
+
+	<view class="page-section-spacing">
+		<view style="width: 100%">
+			<view id="demo1" class="scroll-view-item_H report" wx:if="{{tabIndex==1}}">
+				<view class="title">
+					<text class="name">分数段统计</text>
+					<text class="num">{{titles.length}}</text>
+					<image src="/img/icon-setting.png"></image>
+				</view>
+				<view class="list">
+					<view class="item" wx:for="{{titles}}" wx:key="{{index}}">
+						<text class="name">{{item.text}}</text>
+						<progress class="progress" border-radius="12" color="#FF8053" percent="{{item.val}}" stroke-width="12" />
+						<text class="num">{{item.val}}</text>
+					</view>
+				</view>
+			</view>
+			<view id="demo2" class="scroll-view-item_H score-list" wx:if="{{tabIndex==2}}">
+				<view class="score-item" wx:for="{{recordList}}" wx:key="{{index}}">
+					<view class="score-info">
+						<view class="avatar">
+							<image src="/img/user.png"></image>
+						</view>
+						<view class="content">
+							<view class="name">{{item.displayName}}</view>
+							<text class="{{index + 1 <= 3 ? 'text active' : 'text'}}">第{{index + 1}}名</text>
+						</view>
+					</view>
+					<view class="score-num">
+						<text>{{item.userScoreStr}}</text>
+						<text>分</text>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

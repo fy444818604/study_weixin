@@ -1,7 +1,15 @@
 {
   "pages": [
-    "pages/web/exam/examTest/examTest",
+    "pages/myexam/result/result",
+
     "pages/web/index/index",
+
+    "pages/testpaper/admin/admin",
+
+    "pages/testpaper/analyse/analyse",
+
+    "pages/web/ucenter/uAccount/index",
+    "pages/web/exam/examTest/examTest",
     "pages/web/exam/examDetail/examDetail",
     "pages/web/course/courseList",
     "pages/web/courseInfor/courseInfor",
@@ -9,7 +17,6 @@
     "pages/web/ucenter/uc-coures/ucCoures",
     "pages/web/ucenter/uc-oder/ucOder",
     "pages/web/ucenter/uAccountMenu/index",
-    "pages/web/ucenter/uAccount/index",
     "pages/web/ucenter/uMessage/index",
     "pages/web/logs/logs",
     "pages/web/register/register",
