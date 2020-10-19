@@ -5,9 +5,8 @@ const host = "http://192.168.38.222:8080"
 const wxRequest = function (params, url) {
   var timestamp = Date.parse(new Date()) / 1000;
   var sign = md5.hex_md5("inxedu" + timestamp);
-  console.log("sign", sign)
-  // params.data['sign'] = sign;
-  // params.data['timestamp'] = timestamp;
+  params.data['sign'] = sign;
+  params.data['timestamp'] = timestamp;
   // console.log(host + url +"?timestamp="+timestamp+"&sign="+sign);
   wx.request({
     url: host + url,
