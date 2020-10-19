@@ -51,6 +51,9 @@ Page({
       userId: user.userId
     }
     api.reportDetail({
+      data:{
+
+      },
       success: res => {
         console.log("res", res)
         let data = res.data

@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/web/exam/examTest/examTest",
     "pages/myexam/result/result",
 
     "pages/web/index/index",
@@ -9,7 +10,6 @@
     "pages/testpaper/analyse/analyse",
 
     "pages/web/ucenter/uAccount/index",
-    "pages/web/exam/examTest/examTest",
     "pages/web/exam/examDetail/examDetail",
     "pages/web/course/courseList",
     "pages/web/courseInfor/courseInfor",

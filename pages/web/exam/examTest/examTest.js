@@ -22,31 +22,81 @@ Page({
     countDown: 0,
     countStr:'00:00:00',
     isTxt:false,
-    paperId:127,
+    paperId:138,
     record:[],
-    subjectId:0
+    subjectId:0,
+    shadow:false
+  },
+
+  shadowSwitch() {
+    let _this = this;
+    this.setData({
+      shadow: !_this.data.shadow
+    })
+  },
+
+  setIndex(e) {
+    let index = e.currentTarget.dataset.index;
+    console.log(index)
+    let current = 0;
+    this.data.list.map((v,i) => {
+      if (v.id == index){
+        current = i
+      }
+    })
+    let _this = this;
+    this.setData({
+      current: current,
+      title: _this.data.list[current].title,
+      name: _this.data.list[current].name,
+      everyScore: _this.data.list[current].everyScore,
+      num: _this.data.list[current].num,
+      type: _this.data.list[current].type,
+      shadow: true
+    })
+    this.isTxt();
+    
   },
 
   getRecord() {
     let array = []
-    this.list.map(v => {
-      let isAnswer = v.optionList.some(item => {
-        return item.active
+    this.data.exam.map(v1 => {
+      v1.qstMiddleList.map(v2 => {
+        v2.active = false
       })
+    })
+    this.data.list.map(v => {
+      // let isAnswer = v.optionList.some(item => {
+      //   return item.active
+      // })
+      let isAnswer = v.userAnswer
       if (isAnswer) {
+        
         let recordItem = {
           qstType: v.type,
           pointId: v.pointId,
-          qstIdsLite: v.qstContent,
+          qstIdsLite: v.qstId,
           answerLite: v.optAnswer,
           score:v.score,
           paperMiddle: v.paperMiddle,
           userAnswer: v.userAnswer
         }
+        array.push(recordItem)
 
-        
+        this.data.exam.map(v1 => {
+          v1.qstMiddleList.map(v2 => {
+            if(v2.id == v.id){
+              v2.active = true
+            }
+          })
+        })
+
+        this.setData({
+          exam:this.data.exam
+        })
       }
     })
+    return array
   },
 
   isTxt(){
@@ -79,11 +129,13 @@ Page({
     let index = e.currentTarget.dataset.index
     console.log(this.data.type)
     if (this.data.type == 1 || this.data.type == 3) {
+      console.log(this.data.list[this.data.current].optionList)
       this.data.list[this.data.current].optionList.map(v => {
         v.active = false
       })
       this.data.list[this.data.current].optionList[index].active = true
       this.data.list[this.data.current].userAnswer = this.data.list[this.data.current].optionList[index].optOrder
+      this.getNext();
     } else if (this.data.type == 2 || this.data.type == 5) {
       let str = '';
       this.data.list[this.data.current].optionList[index].active = !this.data.list[this.data.current].optionList[index].active;
@@ -96,10 +148,28 @@ Page({
     }
 
     this.setData({
-      list: _this.data.list
+      list: _this.data.list,
+      record: this.getRecord()
     })
 
-    this.getRecord()
+  },
+
+  getNext(){
+    if(this.data.current != this.data.list.length - 1){
+      this.data.current++
+      this.setData({
+        current: this.data.current
+      })
+    }
+  },
+
+  setText(e){
+    this.data.list[this.data.current].userAnswer = e.detail.value;
+    this.setData({
+      list: this.data.list,
+      record: this.getRecord()
+    })
+
   },
 
   pause() {
@@ -108,15 +178,31 @@ Page({
   },
 
   submitExam() {
-    this.addPaperRecord(0)
+    let _this = this;
+    wx.showModal({
+      title: '交卷',
+      content: '确认交卷？',
+      showCancel: true,
+      success: function (res) {
+        if (res.confirm) {
+          _this.addPaperRecord(0)
+        }
+      }
+    });
   },
 
   nextExam() {
-    this.addPaperRecord(1)
+    utils.alertView('开发', '开发中ING...')
+    // this.addPaperRecord(1)
+  },
+
+  calcShow() {
+    utils.alertView('开发', '开发中ING...')
   },
 
   addPaperRecord(val) {
     let _this = this;
+    console.log(_this.data.record)
     api.submitExam({
       data: {
         userId: 3580,
@@ -125,7 +211,7 @@ Page({
         subjectId: _this.data.subjectId,
         testTime: Math.ceil(_this.data.countDown / 60),
         epId: _this.data.paperId,
-        questionRecordForm:_this.data.record
+        record: JSON.stringify(_this.data.record)
       },
       success(res) {
         console.log(res)
@@ -138,7 +224,8 @@ Page({
       if (this.data.countDown != 0) {
         this.data.countDown--
       } else {
-
+        this.addPaperRecord(0)
+        clearInterval(time)
       }
       this.setData({
         countDown: this.data.countDown,

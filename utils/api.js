@@ -89,7 +89,7 @@ const bundingNew = (params) => wxRequest(params, "/webapp/user/bundingNew");
 const authLogin = (params, params1) => wxRequest(params, `/webapp/authLogin?accesstoken=${params1}`)
 
 const exam = (params) => wxRequest(params, `/webapp/exam/paperAnswer`)
-const submitExam = (params) => wxRequest(params, `/webapp/exam/addPaperRecord`)
+const submitExam = (params) => wxRequest(params, `/webapp/exam/addPaperRecord1`)
 
 const myExam = (params) => wxRequest(params, `/webapp/exam/queryMyExam`)
 

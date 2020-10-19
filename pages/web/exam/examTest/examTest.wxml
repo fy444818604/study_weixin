@@ -11,7 +11,7 @@
     </view>
   </view>
   <view>
-    <swiper bindchange="examChange">
+    <swiper bindchange="examChange" current="{{current}}">
         <block wx:for="{{list}}" wx:key="*this">
           <swiper-item>
             <view class="exam-block">
@@ -23,7 +23,7 @@
                 </view>
               </block>
               <block wx:else>
-                <textarea placeholder="请输入" class="text"></textarea>
+                <textarea placeholder="请输入" value="{{item.userAnswer}}" class="text" bindconfirm="getNext" bindinput="setText"></textarea>
               </block>
             </view>
           </swiper-item>
@@ -31,6 +31,7 @@
       </swiper>
   </view>
   <view class="count">
+    <image src="../../../../img/time.png"></image>
     <view>{{countStr}}</view>
   </view>
   <view class="exam-btm">
@@ -39,20 +40,38 @@
       <view class="exam-fun">暂停计时</view>
     </view>
     <view class="exam-btm-item" bindtap="nextExam">
-      <image src="../../../../img/pause.png"></image>
+      <image src="../../../../img/next.png"></image>
       <view class="exam-fun">下次再做</view>
     </view>
-    <view class="exam-btm-item">
-      <image src="../../../../img/pause.png"></image>
-      <view class="exam-fun">答题卡</view>
+    <view class="exam-btm-item" bindtap="shadowSwitch">
+      <view class="card-img-wrap">
+        <image src="../../../../img/card.png"></image>
+      </view>
+      <view class="exam-fun card-name">答题卡</view>
     </view>
-    <view class="exam-btm-item">
-      <image src="../../../../img/pause.png"></image>
+    <view class="exam-btm-item" bindtap="calcShow">
+      <image src="../../../../img/calc.png"></image>
       <view class="exam-fun">计算器</view>
     </view>
     <view class="exam-btm-item" bindtap="submitExam">
-      <image src="../../../../img/pause.png"></image>
+      <image src="../../../../img/submit.png"></image>
       <view class="exam-fun">交卷</view>
     </view>
   </view>
+  <view class="exam-card" hidden="{{shadow}}">
+    <view class="card-wrap">
+      <view wx:for="{{exam}}">
+        <view class="card-title">{{item.name}}</view>
+        <view class="card-list-wrap">
+          <view wx:for="{{item.qstMiddleList}}" wx:key="*this" class="{{item.active?'active':''}} card-item" data-index="{{item.id}}" bindtap="setIndex">
+            {{index+1}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="card-btn-wrap">
+      <view class="card-btn" bindtap="submitExam">提交试卷</view>
+    </view>
+  </view>
+  <view class="shadow" hidden="{{shadow}}" bindtap="shadowSwitch"></view>
 </view>
