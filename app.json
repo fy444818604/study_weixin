@@ -1,9 +1,12 @@
 {
   "pages": [
+    "pages/myexam/result/result",
+    
     "pages/web/index/index",
+    
+    
     "pages/myexam/index/index",
     "pages/web/exam/examTest/examTest",
-    "pages/myexam/result/result",
 
     
     

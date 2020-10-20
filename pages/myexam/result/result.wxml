@@ -76,10 +76,10 @@
 						<text class="label-text">主观题未判断</text>
 					</view>
 				</view>
-				<view class="select" wx:for="{{middleListResult}}" wx:key="{{index}}">
+				<view class="select" wx:for="{{middleListResult}}" wx:key="{{index}}" wx:if="{{item.all}}">
 					<view class="title">{{item.name}}</view>
 					<view class="select-list">
-						<view class="{{item.status == '0' ? 'select-item green' : 'select-item red'}}" wx:for="{{item.qstMiddleList}}">{{index + 1}}</view>
+						<view wx:if="{{item.userAnswer}}" class="{{item.status == '0' ? 'select-item green' : 'select-item red'}}" wx:for="{{item.qstMiddleList}}">{{index + 1}}</view>
 					</view>
 				</view>
 
@@ -99,24 +99,24 @@
 				</view>
 
 				<view class="analyse-list">
-					<view class="analyse-item" wx:for="{{middleList}}" wx:key="{{index}}">
+					<view class="analyse-item" wx:for="{{middleList}}" wx:key="{{index}}" wx:if="{{item.all}}">
 						<view class="title" wx:if="{{item.qstMiddleList.length > 0}}">
-							<text class="index">{{index + 1}}.</text>
+							<text class="index"></text>
 							<text class="type">（{{item.name}}）</text>
 							<!-- <text class="name">{{item.title}}</text> -->
 						</view>
 						<block wx:if="{{item.type == 1 || item.type == 2 || item.type == 5 }}" wx:for="{{item.qstMiddleList}}" wx:for-item="val" wx:key="{{index}}">
-							<view class="topic">
-								<view class="title">{{val.qstContent}}</view>
+							<view class="topic" wx:if="{{val.userAnswer}}">
+								<view class="title">{{index + 1}}: {{val.qstContent}}</view>
 								<view class="topic-item" wx:for="{{val.optionList}}" wx:for-item="i" wx:key="{{index}}">
 									<view class="{{i.isAll ? 'topic-index current' : 'topic-index'}}">{{i.optOrder}}</view>
 									<view class="topic-title">
 										<rich-text nodes="{{i.optContent}}"></rich-text>
 									</view>
-									<view class="topic-my" wx:if="{{i.isFlag}}">（我的选择）</view>
+									<view class="topic-my" wx:if="{{val.userAnswer && i.isFlag}}">（我的选择）</view>
 								</view>
 							</view>
-							<view class="result">
+							<view class="result" wx:if="{{val.userAnswer}}">
 								<view class="result-title">
 									<view class="icon"></view>
 									<view class="text">考点</view>
@@ -132,11 +132,11 @@
 
 						<block wx:if="{{item.type == 3}}" wx:for="{{item.qstMiddleList}}" wx:for-item="val" wx:key="{{index}}">
 							<view class="flag">
-								<view class="is-flag">{{val.qstContent}}</view>
+								<view class="is-flag">{{index+1}}: {{val.qstContent}}</view>
 								<view class="change" wx:for="{{val.optionList}}" wx:for-item="key" wx:key="{{index}}">
-									<view class="{{key.optAnswer == key.optOrder ? 'icon green' : 'icon'}}">{{key.optOrder}}</view>
+									<view class="{{val.optAnswer == key.optOrder ? 'icon green' : 'icon'}}">{{key.optOrder}}</view>
 									<view class="title">{{key.optContent}}</view>
-									<view class="errinfo" wx:if="{{key.optAnswer != key.optOrder}}">（我的选择）</view>
+									<view class="errinfo" wx:if="{{val.userAnswer == key.optOrder}}">（我的选择）</view>
 								</view>
 							</view>
 							<view class="result">
@@ -179,7 +179,7 @@
 						<block wx:if="{{item.type == 6}}" wx:for="{{item.qstMiddleList}}" wx:for-item="val" wx:key="{{index}}">
 							<view class="essay">
 								<view class="essay-item">
-									<view class="title">{{val.qstContent}}</view>
+									<view class="title">{{index + 1}}: {{val.qstContent}}</view>
 									<view class="answer">
 										<rich-text nodes="{{val.userAnswer}}"></rich-text>
 									</view>

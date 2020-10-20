@@ -175,6 +175,7 @@ swiper{
   border: 1px solid #f2f2f4;
   border-radius: 100%;
   margin-right: 34px;
+  margin-bottom: 34px;
 }
 
 .card-item.active{

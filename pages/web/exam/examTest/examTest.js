@@ -135,7 +135,7 @@ Page({
       })
       this.data.list[this.data.current].optionList[index].active = true
       this.data.list[this.data.current].userAnswer = this.data.list[this.data.current].optionList[index].optOrder
-      this.getNext();
+      // this.getNext();
     } else if (this.data.type == 2 || this.data.type == 5) {
       let str = '';
       this.data.list[this.data.current].optionList[index].active = !this.data.list[this.data.current].optionList[index].active;
@@ -222,7 +222,7 @@ Page({
         success(res) {
           if(res.data.success){
             wx.redirectTo({
-              url: '/pages/myexam/result/result?id=' + _this.data.paperId
+              url: '/pages/myexam/result/result?id=' + res.data.entity
             })
           }else{
             utils.alertView('提示', res.data.message)

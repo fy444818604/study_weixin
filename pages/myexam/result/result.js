@@ -57,14 +57,45 @@ Page({
       })
     } else {
       let ls = JSON.parse(JSON.stringify(this.data.middleListLS))
-      let data = ls.map(item => {
-        item.qstMiddleList.forEach((val, index) => {
-          if (val.status == 0) {
-            item.qstMiddleList.splice(index, 1)
+      // let data = ls.map(item => {
+      //   let arr = item.qstMiddleList
+      //   // item.qstMiddleList.map((val,key) => {
+      //   //   if (val.userAnswer == val.optAnswer) {
+      //   //     console.log(arr)
+      //   //   }
+      //   // })
+      //   for (var i = item.qstMiddleList.length-1;i>0;i--){
+      //     if (item.qstMiddleList[i].userAnswer != item.qstMiddleList[i].optAnswer) {
+      //       item.qstMiddleList.splice(i,1)
+      //       return item
+      //     }
+      //   }
+      // })
+      let data = []
+      for (let i = 0; i <= ls.length; i++) {
+        if (ls[i] && ls[i].qstMiddleList){
+          for (let j = 0; j <= ls[i].qstMiddleList.length; j++) {
+            console.log(123)
+            // let val = ls[i].qstMiddleList[j];
+            // if (val && val.userAnswer != val.optAnswer) {
+            //   ls[i].qstMiddleList.splice(j, 1)
+            // }
           }
-        })
-        return item;
-      })
+        }
+      }
+      console.log("ls", ls)
+
+      // let data = ls.map((item,index) => {
+      //   console.log("item,", item)
+      //   item.qstMiddleList.map((val, key) => {
+      //     // 答案：optAnswer 回答：userAnswer
+      //     if (val.userAnswer == val.optAnswer) {
+      //       item.qstMiddleList.splice(key,1)
+      //     }
+      //     return val;
+      //   })
+      //   return item;
+      // })
       this.setData({
         middleList: data,
       })
@@ -75,26 +106,34 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     let user = wx.getStorageSync("user")
+    // let data = {
+    //   id: options.id,
+    //   userId: user.userId
+    // }
     let data = {
-      id: options.id,
-      userId: user.userId
+      id: "1246025",
+      userId: 3327
     }
-    api.reportDetail({
+    api.paperReport({
       data: {},
       success: res => {
         console.log("res", res)
-        let data = res.data
+        let data = res.data.entity;
         let arr = data.paperMiddleList.filter(item => {
           return item.type != 4 && item.type != 7
         })
         arr = arr.map(item => {
+          let all = item.qstMiddleList.some(v => {
+            return v.userAnswer
+          })
+          item.all = all;
           if (item.type == 5 || item.type == 2 || item.type == 1) {
             item.qstMiddleList.forEach(v => {
-              let result1 = v.userAnswer.split("")
-              let result2 = v.optAnswer.split("")
-              v.optionList.forEach(k => {
+              let result1 = v.userAnswer ? v.userAnswer.split("") : []
+              let result2 = v.optAnswer ? v.optAnswer.split("") : []
+              result2 && v.optionList.forEach(k => {
                 let result3 = result1.includes(k.optOrder)
                 let result4 = result2.includes(k.optOrder)
                 k.isFlag = result3;
@@ -106,6 +145,10 @@ Page({
           }
           return item
         })
+        arr = arr.filter(item => {
+          return item.all
+        })
+
         this.setData({
           replyTime: data.examPaper.replyTime,
           endTime: data.paperRecord.addTime,
@@ -126,49 +169,49 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })
