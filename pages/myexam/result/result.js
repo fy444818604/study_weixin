@@ -72,14 +72,15 @@ Page({
       //   }
       // })
       let data = []
-      for (let i = 0; i <= ls.length; i++) {
+      for (let i = ls.length-1; i >= 0; i--) {
         if (ls[i] && ls[i].qstMiddleList){
-          for (let j = 0; j <= ls[i].qstMiddleList.length; j++) {
-            console.log(123)
-            // let val = ls[i].qstMiddleList[j];
-            // if (val && val.userAnswer != val.optAnswer) {
-            //   ls[i].qstMiddleList.splice(j, 1)
-            // }
+          for (let j = ls[i].qstMiddleList.length-1; j >= 0; j--) {
+         
+            let val = ls[i].qstMiddleList[j];
+            if (val && val.userAnswer == val.optAnswer) {
+              console.log(111)
+              ls[i].qstMiddleList.splice(j, 1)   
+            }
           }
         }
       }
@@ -97,7 +98,7 @@ Page({
       //   return item;
       // })
       this.setData({
-        middleList: data,
+        middleList: ls,
       })
     }
 
