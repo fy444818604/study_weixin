@@ -22,7 +22,7 @@ Page({
     countDown: 0,
     countStr:'00:00:00',
     isTxt:false,
-    paperId:138,
+    paperId:0,
     record:[],
     subjectId:0,
     shadow:false
@@ -263,6 +263,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    this.setData({
+      paperId: options.id
+    })
     let _this = this;
     api.exam({
       data: {

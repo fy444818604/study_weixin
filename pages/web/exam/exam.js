@@ -321,52 +321,85 @@ Page({
   },
   initCourse: function (status) {
     var that = this;
-    api.allCouList({
-      data: {
-        "currentPage": that.data.currentPage,
-        "pageSize": 10,
-        "subjectId": that.data.subjectId,
-        "order": that.data.order,
-        "memberTypeId": that.data.memberTypeId,
-        "sellType_cou_pag": true,//只查询课程和套餐
-        "sellType": that.data.sellType,//只查询课程
-        "isFree": that.data.isFree
+    console.log(123)
+    api.examList({
+      data:{
+        sellType: "examPaper",
+        currentPage: 1,
+        pageSize: 10,
+        subjectId: that.data.subjectId,
+        order: 'NEW',
+        search: false,
+        selectOut: true
       },
-      success: function (res) {
-        if (res.data.success) {
-          console.log(res)
+      success:function(res) {
+        console.log(res)
+        if(res.data.success){
           that.data.totalPageSize = res.data.entity.page.totalPageSize;
-          that.data.allCouList = api.arrayConcat(that.data.allCouList, res.data.entity.courseList);
-          that.data.filterdata = res.data.entity.parentSubjectList;
+          that.data.allCouList = res.data.entity.paperList
           that.data.memberTypeList = res.data.entity.memberTypeList;
+          that.data.filterdata = res.data.entity.sonSubjectList;
 
           that.setData({
+            totalPageSize: that.data.totalPageSize,
             allCouList: that.data.allCouList,
-            filterdata: that.data.filterdata,
             memberTypeList: that.data.memberTypeList,
+            filterdata: that.data.filterdata,
             loadingHidden: true
-          })
-          if (that.data.allCouList) {
-            if (that.data.allCouList.length > 0) {
-              that.setData({
-                couFlag: 1
-              })
-            } else {
-              that.setData({
-                couFlag: 0
-              })
-            }
-          }
-        } else {
-          that.setData({
-            couFlag: 0
           })
         }
       },
-      fail: function () {
-        console.log("课程列表展示失败")
+      fail(err) {
+        console.log(err)
       }
-    });
+    })
+    // var that = this;
+    // api.allCouList({
+    //   data: {
+    //     "currentPage": that.data.currentPage,
+    //     "pageSize": 10,
+    //     "subjectId": that.data.subjectId,
+    //     "order": that.data.order,
+    //     "memberTypeId": that.data.memberTypeId,
+    //     "sellType_cou_pag": true,//只查询课程和套餐
+    //     "sellType": that.data.sellType,//只查询课程
+    //     "isFree": that.data.isFree
+    //   },
+    //   success: function (res) {
+    //     if (res.data.success) {
+    //       console.log(res)
+    //       that.data.totalPageSize = res.data.entity.page.totalPageSize;
+    //       that.data.allCouList = api.arrayConcat(that.data.allCouList, res.data.entity.courseList);
+    //       that.data.filterdata = res.data.entity.parentSubjectList;
+    //       that.data.memberTypeList = res.data.entity.memberTypeList;
+
+    //       that.setData({
+    //         allCouList: that.data.allCouList,
+    //         filterdata: that.data.filterdata,
+    //         memberTypeList: that.data.memberTypeList,
+    //         loadingHidden: true
+    //       })
+    //       if (that.data.allCouList) {
+    //         if (that.data.allCouList.length > 0) {
+    //           that.setData({
+    //             couFlag: 1
+    //           })
+    //         } else {
+    //           that.setData({
+    //             couFlag: 0
+    //           })
+    //         }
+    //       }
+    //     } else {
+    //       that.setData({
+    //         couFlag: 0
+    //       })
+    //     }
+    //   },
+    //   fail: function () {
+    //     console.log("课程列表展示失败")
+    //   }
+    // });
   },
   openCourse: function (event) {
     var courseId = event.currentTarget.dataset.courseid

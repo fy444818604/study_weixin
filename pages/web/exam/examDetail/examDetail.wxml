@@ -1,45 +1,42 @@
 <!--pages/web/exam/examDetail/examDetail.wxml-->
 <view class="container">
   <view class="exam-detail">
-    <view class="exam-title">Web前端开发第一章节 理论</view>
+    <view class="exam-title">{{name}}</view>
     <view class="item-list">
       <view class="item-name">考试类型</view>
-      <view class="item-value">普通考试</view>
+      <view class="item-value">{{sellType}}</view>
     </view>
     <view class="item-list">
       <view class="item-name">专业</view>
-      <view class="item-value">信息工程</view>
+      <view class="item-value">{{subjectName}}</view>
     </view>
     <view class="item-list">
       <view class="item-name">可做次数</view>
-      <view class="item-value">无限次</view>
+      <view class="item-value">{{joinFrequency}}</view>
     </view>
     <view class="item-list">
       <view class="item-name">难度</view>
-      <view class="item-value">简单</view>
+      <view class="item-value">{{level}}</view>
     </view>
     <view class="item-list">
       <view class="item-name">答题时间</view>
-      <view class="item-value">40分钟</view>
+      <view class="item-value">{{replyTime}}</view>
     </view>
     <view class="item-list">
       <view class="item-name">题目总数</view>
-      <view class="item-value">35题</view>
+      <view class="item-value">{{qstCount}}题</view>
     </view>
     <view class="item-list">
       <view class="item-name">截止时间</view>
-      <view class="item-value">不限时间</view>
+      <view class="item-value">{{validityType}}</view>
     </view>
-    <view class="item-list">
-      <view class="item-name">学分</view>
-      <view class="item-value">20</view>
-    </view>
+    
     <view class="item-list bdn">
       <view class="item-name">描述</view>
-      <view class="item-value">课程、练习发布时间、提交时间、新版课程更新</view>
+      <view class="item-value">{{describtion}}</view>
     </view>
   </view>
   <view class="bottom">
-    <view class="exam-btn">立即做题</view>
+    <view class="exam-btn" bindtap="exam">立即做题</view>
   </view>
 </view>

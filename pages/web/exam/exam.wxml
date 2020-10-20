@@ -4,11 +4,11 @@
 </loading>
 <view class="container">
 <view class="filter-flex">
-    <view class="filter-tab">
+    <!-- <view class="filter-tab">
       <text bindtap="setFilterPanel" data-findex="1" class="{{showfilterindex==1?'active':''}}">考试专业</text>
       <text bindtap="setFilterPanel" data-findex="2" class="{{showfilterindex==2?'active':''}}">排序方式</text>
       <text bindtap="setFilterPanel" data-findex="3" class="{{showfilterindex==3?'active':''}}">条件筛选</text>
-    </view>
+    </view> -->
     <view class="filter-content" wx:if="{{showfilter}}">
       <view class="filter-panel" wx:if="{{showfilterindex==1}}">
         <view class="filter-panel-left">
@@ -61,9 +61,9 @@
             <view class="screen-item-tit"><text class="c-333">难度分类</text></view>
             <view class="screen-item-fl">
               <view class="screen-item-fl-btn active"><text class="c-666">全部</text></view>
-              <view class="screen-item-fl-btn active"><text class="c-666">简单</text></view>   
-              <view class="screen-item-fl-btn active"><text class="c-666">中等</text></view>   
-              <view class="screen-item-fl-btn active"><text class="c-666">困难</text></view>                               
+              <view class="screen-item-fl-btn"><text class="c-666">简单</text></view>   
+              <view class="screen-item-fl-btn"><text class="c-666">中等</text></view>   
+              <view class="screen-item-fl-btn"><text class="c-666">困难</text></view>                               
             </view>
           </view>
           <view class="screen-selected">
@@ -81,7 +81,7 @@
   <view class="course-li-ul">
     <scroll-view scroll-y="true" bindscrolltolower="loadMore"  bindscrolltoupper="refesh" style="height: {{scrollHeight}}px">
         <block wx:for="{{allCouList}}" wx:key="key">
-          <view class="course-item-li" data-courseid="{{item.courseId}}" catchtap="openCourse" hover-class="navigator-hover">
+          <view class="course-item-li" data-courseid="{{item.id}}" catchtap="openCourse" hover-class="navigator-hover">
             <view class="course-item">
               <!-- <view class="cou-item-pic">
                 <image class="pic" src='{{host}}{{item.logo}}'></image>
@@ -89,9 +89,9 @@
               <view class="cou-item-txt">
                 <view class="cou-item-txt-info">
                   <view class="item-txt-title hLh20 txtOf">
-                    <text class="c-333 exam-name">{{item.courseName}}</text>
+                    <text class="c-333 exam-name">{{item.name}}</text>
                   </view>
-                  <view class="c-999 exam-type">历年真题</view>
+                  <view class="c-999 exam-type">{{item.title}}</view>
                 </view>
               </view>
             </view>
