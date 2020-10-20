@@ -103,8 +103,8 @@ App({
         {
           "pagePath": "/pages/web/exam/exam",
           "text": "考试",
-          "iconPath": "/img/course_tab.png",
-          "selectedIconPath": "/img/course_tab_selected.png",
+          "iconPath": "/img/indexExam.png",
+          "selectedIconPath": "/img/indexExam-select.png",
           "selectedColor": "#000",
           "clas": "menu-item",
           active: false

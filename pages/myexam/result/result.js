@@ -78,7 +78,7 @@ Page({
   onLoad: function (options) {
     let user = wx.getStorageSync("user")
     let data = {
-      id: 1245953,
+      id: options.id,
       userId: user.userId
     }
     api.reportDetail({

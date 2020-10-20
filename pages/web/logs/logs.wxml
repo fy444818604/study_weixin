@@ -87,21 +87,23 @@
           </navigator>
           <navigator url="/pages/myexam/index/index"  hover-class='none'>
             <view class="uc-in-menu-item" hover-class="navigator-hover">
-              <view class="menu-pic"><text class="wui-iconfont wui-icon-kecheng_n"></text></view>
+              <view class="menu-pic">
+                <image src="../../../img/exam.png"></image>
+              </view>
               <view class="nemu-name" >我的考试</view> 
               <view class="menu-arrow"><text class="wui-iconfont wui-icon-youjiantou1"></text></view>
             </view>
           </navigator>
-          <navigator url="/pages/web/ucenter/uc-coures/ucCoures"  hover-class='none'>
+          <!-- <navigator url="/pages/web/ucenter/uc-coures/ucCoures"  hover-class='none'>
             <view class="uc-in-menu-item" hover-class="navigator-hover">
-              <view class="menu-pic"><text class="wui-iconfont wui-icon-kecheng_n"></text></view>
+              <view class="menu-pic"><image src="../../../img/score.png"></image></view>
               <view class="nemu-name" >我的学分</view> 
               <view class="menu-arrow"><text class="wui-iconfont wui-icon-youjiantou1"></text></view>
             </view>
-          </navigator>
+          </navigator> -->
           <navigator url="/pages/testpaper/admin/admin"  hover-class='none'>
             <view class="uc-in-menu-item" hover-class="navigator-hover">
-              <view class="menu-pic"><text class="wui-iconfont wui-icon-kecheng_n"></text></view>
+              <view class="menu-pic"><image src="../../../img/paper.png"></image></view>
               <view class="nemu-name" >试卷管理</view> 
               <view class="menu-arrow"><text class="wui-iconfont wui-icon-youjiantou1"></text></view>
             </view>

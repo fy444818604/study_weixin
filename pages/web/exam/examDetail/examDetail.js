@@ -1,5 +1,6 @@
 // pages/web/exam/examDetail/examDetail.js
 var app = getApp(),
+  utils = require('../../../../utils/util.js'),
   api = require('../../../../utils/api.js');
 Page({
 
@@ -24,9 +25,18 @@ Page({
   },
 
   exam() {
-    wx.navigateTo({
-      url: '/pages/web/exam/examTest/examTest?id=' + this.data.id,
-    })
+    var userId = 0;
+    var user = wx.getStorageSync('user');
+    if (api.isNotEmpty(user)) {
+      userId = user.userId;
+    }
+    if (userId != 0){
+      wx.navigateTo({
+        url: '/pages/web/exam/examTest/examTest?id=' + this.data.id,
+      })
+    }else{
+      utils.alertView('提示','请先登录')
+    }
   },
 
   search() {

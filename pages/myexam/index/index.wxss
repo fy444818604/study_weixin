@@ -57,17 +57,19 @@
 }
 .my-exam .exam-list .exam-item .label {
   margin-top: 25rpx;
+  display: flex;
+  align-items: center;
 }
 
 .my-exam .exam-list .exam-item .label .label-item {
-  width: 84rpx;
-  height: 48rpx;
   box-sizing: border-box;
   background-color: #F5F5F5;
   color: #999999;
   border-radius: 8rpx;
   text-align: center;
-  line-height: 48rpx;
+  margin-right: 24rpx;
+  padding: 5rpx 16rpx;
+  font-size: 26rpx;
 }
 
 .my-exam .exam-list .exam-item .bottom {

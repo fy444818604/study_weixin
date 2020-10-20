@@ -28,3 +28,9 @@
 .login-wx{background: none !important}
 .login-wx::after{border: none}
 .login-wx image{width: 32px; height: 32px}
+
+.menu-pic image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 10px;
+}

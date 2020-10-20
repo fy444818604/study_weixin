@@ -25,7 +25,7 @@ Page({
     paperId:0,
     record:[],
     subjectId:0,
-    shadow:false
+    shadow:true
   },
 
   shadowSwitch() {
@@ -203,20 +203,35 @@ Page({
   addPaperRecord(val) {
     let _this = this;
     console.log(_this.data.record)
-    api.submitExam({
-      data: {
-        userId: 3580,
-        optype:val,
-        type: 1,
-        subjectId: _this.data.subjectId,
-        testTime: Math.ceil(_this.data.countDown / 60),
-        epId: _this.data.paperId,
-        record: JSON.stringify(_this.data.record)
-      },
-      success(res) {
-        console.log(res)
-      }
-    })
+    var userId = 0;
+    var user = wx.getStorageSync('user');
+    if (api.isNotEmpty(user)) {
+      userId = user.userId;
+    }
+    if (_this.data.record.length != 0) {
+      api.submitExam({
+        data: {
+          userId: userId,
+          optype: val,
+          type: 1,
+          subjectId: _this.data.subjectId,
+          testTime: Math.ceil(_this.data.countDown / 60),
+          epId: _this.data.paperId,
+          record: JSON.stringify(_this.data.record)
+        },
+        success(res) {
+          if(res.data.success){
+            wx.redirectTo({
+              url: '/pages/myexam/result/result?id=' + _this.data.paperId
+            })
+          }else{
+            utils.alertView('提示', res.data.message)
+          }
+        }
+      })
+    }else{
+      utils.alertView('提示','不能交白卷')
+    }
   },
 
   count() {
@@ -267,10 +282,16 @@ Page({
       paperId: options.id
     })
     let _this = this;
+    var userId = 0;
+    var user = wx.getStorageSync('user');
+    if (api.isNotEmpty(user)) {
+      userId = user.userId;
+    }
+    console.log(userId)
     api.exam({
       data: {
         paperId: _this.data.paperId,
-        userId: 3580
+        userId: userId
       },
       success: res => {
         console.log(res)
