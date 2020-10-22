@@ -20,7 +20,7 @@
 			</view>
 			<view class="bottom">
 				<view class="leave-time">{{item.leaveTime}}离开</view>
-				<view class="over">{{item.doTimes}}题已完成/{{item.notJoin}}题未完成</view>
+				<view class="over">{{item.qstCount - item.doneCount}}题已完成/{{item.doneCount}}题未完成</view>
 				<view class="btn" bindtap="exam" data-id="{{item.id}}">{{!item.isHistroy? "答题" : item.status == 0?'查看':'继续'}}</view>
 			</view>
 		</view>

@@ -30,9 +30,12 @@ Page({
   // 跳转到详情
   handlePushAnalyse(e) {
     let id = e.currentTarget.dataset.id;
-    wx.navigateTo({
-      url: '/pages/testpaper/analyse/analyse?id=' + id,
-    })
+    let status = e.currentTarget.dataset.status;
+    if (status == 'normal'){
+      wx.navigateTo({
+        url: '/pages/web/exam/examDetail/examDetail?id=' + id + '&type=1',
+      })
+    }
   },
 
   // 上架/下架

@@ -32,14 +32,14 @@ Page({
       },
       success: res => {
         console.log("res", res)
-        let result = res.data.paperRecordList.map(item => {
-          return item.epId
-        });
+        let recordList = res.data.paperRecordList
         let list = res.data.paperList.map(item => {
-          result.forEach(v => {
-            if (item.id == v) {
+          recordList.forEach(v => {
+            if (item.id == v.epId) {
               item.isHistroy = true;
-            }
+            } 
+            item.doneCount = v.doneCount;
+            
           })
           item.leaveTime = item.updateTime && item.updateTime.substr(11)
           item.endTime = item.endTime.substring(5, 16)

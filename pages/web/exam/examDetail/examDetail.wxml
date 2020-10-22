@@ -37,6 +37,8 @@
     </view>
   </view>
   <view class="bottom">
-    <view class="exam-btn" bindtap="exam">立即做题</view>
+    <view class="exam-btn" bindtap="exam" wx:if="{{type == 0}}">立即做题</view>
+    <view class="exam-btn" bindtap="exam1" wx:if="{{type == 1}}" style="margin-right:30px">试卷分析</view>
+    <view class="exam-btn" bindtap="exam2" wx:if="{{type == 1}}">试卷{{status=='normal'?'撤回':'发布'}}</view>
   </view>
 </view>

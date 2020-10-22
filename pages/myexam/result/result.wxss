@@ -194,6 +194,12 @@
 .answer-box .select .select-list .select-item.red {
   background: #FF6E6E;
 }
+.answer-box .select .select-list .select-item.red1 {
+  background: #FFE3D9;
+}
+.answer-box .select .select-list .select-item.red2 {
+  background: #F2F2F4;
+}
 
 .answer-box .select .select-list .select-item:nth-of-type(5n),.answer-box .judge .judge-list .judge-item:nth-of-type(5n),.answer-box .explain .explain-list .explain-item:nth-of-type(5n) {
   margin-right: 0;

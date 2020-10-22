@@ -1,8 +1,10 @@
 {
   "pages": [
+    "pages/web/index/index",
+    "pages/web/exam/examDetail/examDetail",
     "pages/myexam/result/result",
     
-    "pages/web/index/index",
+   
     
     
     "pages/myexam/index/index",
@@ -17,7 +19,6 @@
 
     "pages/testpaper/analyse/analyse",
     "pages/web/ucenter/uAccount/index",
-    "pages/web/exam/examDetail/examDetail",
     "pages/web/course/courseList",
     "pages/web/courseInfor/courseInfor",
     "pages/web/playHall/index",

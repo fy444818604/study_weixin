@@ -1,6 +1,6 @@
 var md5 = require('md5.js');
-const host = "http://192.168.38.222:8080"
-// const host = "https://xx.ysclass.net"
+// const host = "http://192.168.38.222:8080"
+const host = "https://xx.ysclass.net"
 // const host = "https://wx.inxedu.com"
 const wxRequest = function (params, url) {
   var timestamp = Date.parse(new Date()) / 1000;

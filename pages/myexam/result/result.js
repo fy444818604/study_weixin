@@ -77,9 +77,18 @@ Page({
           for (let j = ls[i].qstMiddleList.length-1; j >= 0; j--) {
          
             let val = ls[i].qstMiddleList[j];
-            if (val && val.userAnswer == val.optAnswer) {
-              console.log(111)
-              ls[i].qstMiddleList.splice(j, 1)   
+            if (val && val.qstType == 4 || val.qstType == 6 || val.qstType == 7){
+              if(val.state == 0){
+                ls[i].qstMiddleList.splice(j, 1)
+              }else{
+                if (val.status == 0){
+                  ls[i].qstMiddleList.splice(j, 1)
+                }
+              }
+            }else{
+              if (val && val.userAnswer == val.optAnswer) {
+                ls[i].qstMiddleList.splice(j, 1)
+              }
             }
           }
         }
@@ -109,14 +118,11 @@ Page({
    */
   onLoad: function(options) {
     let user = wx.getStorageSync("user")
-    // let data = {
-    //   id: options.id,
-    //   userId: user.userId
-    // }
     let data = {
-      id: "1246025",
-      userId: 3327
+      id: options.id,
+      userId: user.userId
     }
+    
     api.paperReport({
       data: {},
       success: res => {

@@ -21,7 +21,9 @@ Page({
     replyTime:0,
     qstCount:0,
     subjectName:'',
-    name:''
+    name:'',
+    type:0,
+    status:''
   },
 
   exam() {
@@ -39,12 +41,50 @@ Page({
     }
   },
 
+  exam1() {
+    wx.navigateTo({
+      url: '/pages/testpaper/analyse/analyse?id=' + this.data.id,
+    })
+  },
+
+  exam2() {
+    this.handleChangeStatus()
+  },
+
+  // 上架/下架
+  handleChangeStatus(e) {
+    let id =this.data.id;
+    let status = this.data.status;
+    status == "normal" ? status = "frozen" : status = "normal"
+    wx.showLoading()
+    api.updPaperState({
+      data: {
+        status: status,
+        exampaperId: id
+      },
+      success: (res) => {
+        console.log("res", res)
+        wx.hideLoading()
+        this.setData({
+          name: "",
+          currentPage: 1
+        })
+        this.getData()
+      }
+    })
+  },
+
   search() {
     let _this = this;
+    var userId = 0;
+    var user = wx.getStorageSync('user');
+    if (api.isNotEmpty(user)) {
+      userId = user.userId;
+    }
     api.examInfo({
       data:{
         paperId: _this.data.id,
-        userId: 3580
+        userId: userId
       },
       success:res => {
         console.log(res)
@@ -68,7 +108,8 @@ Page({
           qstCount: _this.data.qstCount,
           name: _this.data.name,
           subjectName: _this.data.subjectName,
-          validityType: _this.data.validityType
+          validityType: _this.data.validityType,
+          status: queryPaper.status
         })
       }
     })
@@ -79,7 +120,8 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      id: options.id
+      id: options.id,
+      type: options.type
     })
     this.search()
   },

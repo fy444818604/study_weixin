@@ -79,7 +79,8 @@
 				<view class="select" wx:for="{{middleListResult}}" wx:key="{{index}}" wx:if="{{item.all}}">
 					<view class="title">{{item.name}}</view>
 					<view class="select-list">
-						<view wx:if="{{item.userAnswer}}" class="{{item.status == '0' ? 'select-item green' : 'select-item red'}}" wx:for="{{item.qstMiddleList}}">{{index + 1}}</view>
+						<view wx:if="{{item.userAnswer && item.qstType == 4 || item.qstType == 6 || item.qstType == 7 }}" class="{{item.state == '1'?'red1':'red2'}} select-item" wx:for="{{item.qstMiddleList}}">{{index + 1}}</view>
+            <view wx:if="{{item.userAnswer && item.qstType == 1 || item.qstType == 3 || item.qstType == 2 || item.qstType == 5}}" class="{{item.status == '0' ? 'green' : 'red'}} select-item" wx:for="{{item.qstMiddleList}}">{{index + 1}}</view>
 					</view>
 				</view>
 
