@@ -1,79 +1,81 @@
 {
-	"description": "项目配置文件。",
-	"setting": {
-		"urlCheck": false,
-		"es6": true,
-		"postcss": true,
-		"preloadBackgroundData": false,
-		"minified": true,
-		"newFeature": true,
-		"autoAudits": true,
-		"coverView": true,
-		"showShadowRootInWxmlPanel": true,
-		"scopeDataCheck": false,
-		"enhance": false,
-		"nodeModules": true,
-		"uglifyFileName": false,
-		"checkInvalidKey": true,
-		"checkSiteMap": true,
-		"uploadWithSourceMap": true,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		},
-		"useCompilerModule": false
-	},
-	"compileType": "miniprogram",
-	"libVersion": "2.11.0",
-	"appid": "wx8260e8ce1a98c579",
-	"projectname": "%E7%BD%91%E6%A0%A1",
-	"isGameTourist": false,
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"condition": {
-		"search": {
-			"current": -1,
-			"list": []
-		},
-		"conversation": {
-			"current": -1,
-			"list": []
-		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
-		"game": {
-			"currentL": -1,
-			"list": []
-		},
-		"gamePlugin": {
-			"current": -1,
-			"list": []
-		},
-		"miniprogram": {
-			"current": -1,
-			"list": [
-				{
-					"id": 0,
-					"name": "pages/web/courseInfor/courseInfor",
-					"pathName": "pages/web/courseInfor/courseInfor",
-					"query": "userId=5121&courseId=148",
-					"scene": null
-				},
-				{
-					"id": 1,
-					"name": "pages/web/logs/logs",
-					"pathName": "pages/web/logs/logs",
-					"query": "token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJvcGVuQWNjb3VudElkIjoiNDkzNDE1NjM5NTg3ODg1MDU2IiwidGVuYW50SWQiOiIwIiwicGxhdGZvcm1UeXBlIjoicGMiLCJpZCI6IjQ5MzQxNjI0Mzc4NTc2NDg2NSIsIm9wZW5Vc2VySW5mb0lkIjoiNDkzMzk3NTEzNjQzMTAyNDM3IiwidXNlck5hbWUiOiLpu4TmmajpmLMiLCJleHAiOjE2MDM1OTc2MjIsIm9yZ0lkIjoiNDkzMzk3NTEzNjQzMTAyMjIxIiwidXNlckluZm9JZCI6IjQ5MzQxNjI0Mzc4NTc2NDg2NCJ9.ot5bPkrMp0lCw3hiz5MqQCK07sfvBqvCH9wTsCxOfks",
-					"scene": 1037,
-					"referrerInfo": {
-						"appId": "wx0bf1f71be247baa0",
-						"extraData": "{}"
-					}
-				}
-			]
-		}
-	}
+  "description": "项目配置文件。",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": false,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": true,
+    "autoAudits": true,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "useMultiFrameRuntime": false,
+    "useApiHook": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useIsolateContext": true,
+    "useCompilerModule": false,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.11.0",
+  "appid": "wx8260e8ce1a98c579",
+  "projectname": "%E7%BD%91%E6%A0%A1",
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "currentL": -1,
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": 0,
+          "name": "pages/web/courseInfor/courseInfor",
+          "pathName": "pages/web/courseInfor/courseInfor",
+          "query": "userId=5121&courseId=148",
+          "scene": null
+        },
+        {
+          "id": 1,
+          "name": "pages/web/logs/logs",
+          "pathName": "pages/web/logs/logs",
+          "query": "token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJvcGVuQWNjb3VudElkIjoiNDkzNDE1NjM5NTg3ODg1MDU2IiwidGVuYW50SWQiOiIwIiwicGxhdGZvcm1UeXBlIjoicGMiLCJpZCI6IjQ5MzQxNjI0Mzc4NTc2NDg2NSIsIm9wZW5Vc2VySW5mb0lkIjoiNDkzMzk3NTEzNjQzMTAyNDM3IiwidXNlck5hbWUiOiLpu4TmmajpmLMiLCJleHAiOjE2MDM1OTc2MjIsIm9yZ0lkIjoiNDkzMzk3NTEzNjQzMTAyMjIxIiwidXNlckluZm9JZCI6IjQ5MzQxNjI0Mzc4NTc2NDg2NCJ9.ot5bPkrMp0lCw3hiz5MqQCK07sfvBqvCH9wTsCxOfks",
+          "scene": 1037,
+          "referrerInfo": {
+            "appId": "wx0bf1f71be247baa0",
+            "extraData": "{}"
+          }
+        }
+      ]
+    }
+  }
 }

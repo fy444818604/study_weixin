@@ -1,23 +1,7 @@
 {
   "pages": [
     "pages/web/index/index",
-    "pages/web/exam/examDetail/examDetail",
-    "pages/myexam/result/result",
-    
-   
-    
-    
-    "pages/myexam/index/index",
-    "pages/web/exam/examTest/examTest",
-
-    
-    
-
-    "pages/testpaper/admin/admin",
-
-
-
-    "pages/testpaper/analyse/analyse",
+    "pages/myexam/calc/calc",
     "pages/web/ucenter/uAccount/index",
     "pages/web/course/courseList",
     "pages/web/courseInfor/courseInfor",
@@ -46,6 +30,12 @@
     "pages/account/recharge/recharge",
     "pages/account/ucenter/uc-account/ucAccount",
     "pages/bunding/bunding/bunding",
+    "pages/testpaper/admin/admin",
+    "pages/testpaper/analyse/analyse",
+    "pages/myexam/result/result",
+    "pages/myexam/index/index",
+    "pages/web/exam/examTest/examTest",
+    "pages/web/exam/examDetail/examDetail",
     "pages/web/exam/exam"
   ],
   "window": {

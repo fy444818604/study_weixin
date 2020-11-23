@@ -197,7 +197,10 @@ Page({
   },
 
   calcShow() {
-    utils.alertView('开发', '开发中ING...')
+    // utils.alertView('开发', '开发中ING...')
+    wx.navigateTo({
+      url: '../../../../pages/myexam/calc/calc',
+    })
   },
 
   addPaperRecord(val) {
